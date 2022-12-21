@@ -98,6 +98,7 @@ export default new Vuex.Store({
       commit("setProfileInitials");
       const token = await user.getIdTokenResult();
       const admin = await token.claims.admin;
+      
       commit("setProfileAdmin", admin);
     },
     async getPost({ state }) {

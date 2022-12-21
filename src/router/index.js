@@ -2,6 +2,8 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Blogs from "../views/Blogs.vue";
+import Tags from "../views/Tags/Tag.vue";
+
 import Login from "../views/Login.vue";
 import Register from "../views/Register.vue";
 import ForgotPassword from "../views/ForgotPassword.vue";
@@ -23,6 +25,15 @@ const routes = [
     component: Home,
     meta: {
       title: "Home",
+      requiresAuth: false,
+    },
+  },
+  {
+    path: "/tags",
+    name: "Tag",
+    component: Tags,
+    meta: {
+      title: "Tag",
       requiresAuth: false,
     },
   },
