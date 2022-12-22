@@ -148,6 +148,7 @@ router.beforeEach((to, from, next) => {
 });
 
 router.beforeEach(async (to, from, next) => {
+
   let user = firebase.auth().currentUser;
   let admin = null;
   if (user) {

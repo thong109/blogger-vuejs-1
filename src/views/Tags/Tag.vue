@@ -5,173 +5,44 @@
       style="transform: none; height: auto !important"
     >
       <div class="content-column col-xl-9 col-lg-8">
-        <div class="content-area">
-          <main class="site-main">
-            <div class="post-feed">
-              <div class="row">
-                <div class="post-column col-xl-4 col-md-6">
-                  <article class="post tag-logseq u-shadow">
-                    <div class="post-wrapper">
-                      <div class="post-media">
-                        <div class="u-placeholder same-height rectangle">
-                          <a
-                            class="post-image-link"
-                            href="/open-and-edit-logseq-pages-and-config-files-in-emacs/"
-                          >
-                            <img
-                              class="
-                                post-image
-                                u-object-fit
-                                lazyautosizes
-                                lazyloaded
-                              "
-                              data-srcset="/content/images/2022/12/Code-2022-20-51-45.jpg 400w, /content/images/2022/12/Code-2022-20-51-45.jpg 750w, /content/images/2022/12/Code-2022-20-51-45.jpg 960w"
-                              src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-                              data-sizes="auto"
-                              alt="Open and edit Logseq pages and config files in Emacs"
-                              sizes="280px"
-                              srcset="
-                                /content/images/2022/12/Code-2022-20-51-45.jpg 400w,
-                                /content/images/2022/12/Code-2022-20-51-45.jpg 750w,
-                                /content/images/2022/12/Code-2022-20-51-45.jpg 960w
-                              "
-                            />
-                          </a>
-                        </div>
-                      </div>
-                      <div class="post-right">
-                        <header class="post-header">
-                          <a class="post-tag" href="/tag/logseq/">Logseq</a>
-                          <h2 class="post-title">
-                            <a
-                              class="post-title-link"
-                              href="/open-and-edit-logseq-pages-and-config-files-in-emacs/"
-                              >Open and edit Logseq pages and config files in
-                              Emacs</a
-                            >
-                          </h2>
-                        </header>
-                        <div class="post-excerpt">
-                          Open and edit Logseq pages and config files in Emacs
-                        </div>
-                        <span class="post-card-tags">21 December 2022</span>
-                      </div>
-                    </div>
-                  </article>
-                </div>
-                <div class="post-column col-xl-4 col-md-6">
-                  <article
-                    class="post tag-gmail tag-email tag-tailwind-css u-shadow"
-                  >
-                    <div class="post-wrapper">
-                      <div class="post-media">
-                        <div class="u-placeholder same-height rectangle">
-                          <a
-                            class="post-image-link"
-                            href="https://vuejsexamples.com/content/images/2022/08/Code-2022-28-51-45.jpg"
-                          >
-                            <img
-                              class="
-                                post-image
-                                u-object-fit
-                                lazyautosizes
-                                lazyloaded
-                              "
-                              data-srcset="https://vuejsexamples.com/content/images/2022/08/Code-2022-28-51-45.jpg"
-                              src="https://vuejsexamples.com/content/images/2022/08/Code-2022-28-51-45.jpg"
-                              data-sizes="auto"
-                              alt="A Gmail Clone made with Vue 3, Tailwind CSS and Firebase"
-                              sizes="280px"
-                              srcset="
-                                /content/images/2022/12/Code-2022-20-58-42.jpg 400w,
-                                /content/images/2022/12/Code-2022-20-58-42.jpg 750w,
-                                /content/images/2022/12/Code-2022-20-58-42.jpg 960w
-                              "
-                            />
-                          </a>
-                        </div>
-                      </div>
-                      <div class="post-right">
-                        <header class="post-header">
-                          <a class="post-tag" href="/tag/gmail/">Gmail</a>
-                          <h2 class="post-title">
-                            <a
-                              class="post-title-link"
-                              href="/a-gmail-clone-made-with-vue-3-tailwind-css-and-firebase/"
-                              >A Gmail Clone made with Vue 3, Tailwind CSS and
-                              Firebase</a
-                            >
-                          </h2>
-                        </header>
-                        <div class="post-excerpt">
-                          A Gmail Clone made with Vue 3, Tailwind CSS and
-                          Firebase
-                        </div>
-                        <span class="post-card-tags">21 December 2022</span>
-                      </div>
-                    </div>
-                  </article>
-                </div>
-                <div class="post-column col-xl-4 col-md-6">
-                  <article class="post tag-twitter tag-images u-shadow">
-                    <div class="post-wrapper">
-                      <div class="post-media">
-                        <div class="u-placeholder same-height rectangle">
-                          <a
-                            class="post-image-link"
-                            href="/a-little-app-to-make-it-easier-to-create-leaving-twitter-header-images/"
-                          >
-                            <img
-                              class="
-                                post-image
-                                u-object-fit
-                                lazyautosizes
-                                lazyloaded
-                              "
-                              data-srcset="/content/images/2022/12/Code-2022-20-58-04.jpg 400w, /content/images/2022/12/Code-2022-20-58-04.jpg 750w, /content/images/2022/12/Code-2022-20-58-04.jpg 960w"
-                              src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
-                              data-sizes="auto"
-                              alt="A little app to make it easier to create leaving twitter header images"
-                              sizes="280px"
-                              srcset="
-                                /content/images/2022/12/Code-2022-20-58-04.jpg 400w,
-                                /content/images/2022/12/Code-2022-20-58-04.jpg 750w,
-                                /content/images/2022/12/Code-2022-20-58-04.jpg 960w
-                              "
-                            />
-                          </a>
-                        </div>
-                      </div>
-                      <div class="post-right">
-                        <header class="post-header">
-                          <a class="post-tag" href="/tag/twitter/">Twitter</a>
-                          <h2 class="post-title">
-                            <a
-                              class="post-title-link"
-                              href="/a-little-app-to-make-it-easier-to-create-leaving-twitter-header-images/"
-                              >A little app to make it easier to create leaving
-                              twitter header images</a
-                            >
-                          </h2>
-                        </header>
-                        <div class="post-excerpt">
-                          A little app to make it easier to create leaving
-                          twitter header images
-                        </div>
-                        <span class="post-card-tags">21 December 2022</span>
-                      </div>
-                    </div>
-                  </article>
+        <div class="post-column col-xl-4 col-md-6">
+          <div class="post tag-logseq u-shadow">
+            <div class="post-wrapper">
+              <div class="post-media">
+                <div class="u-placeholder same-height rectangle">
+                  <a class="post-image-link" href="">
+                    <img
+                      class="post-image u-placeholder .u-object-fit"
+                      src="https://vuejsexamples.com/content/images/2022/12/Code-2022-21-42-08.jpg"
+                      data-sizes="auto"
+                      alt="Open and edit Logseq pages and config files in Emacs"
+                      sizes="280px"
+                    />
+                  </a>
                 </div>
               </div>
+              <div class="post-right">
+                <header class="post-header">
+                  <a class="post-tag" href="/tag/logseq/">Logseq</a>
+                  <h2 class="post-title">
+                    <a
+                      class="post-title-link"
+                      href="/open-and-edit-logseq-pages-and-config-files-in-emacs/"
+                      >Open and edit Logseq pages and config files in Emacs</a
+                    >
+                  </h2>
+                </header>
+                <div class="post-excerpt">
+                  Open and edit Logseq pages and config files in Emacs
+                </div>
+                <span class="post-card-tags">21 December 2022</span>
+              </div>
             </div>
-
-            <div class="infinite-scroll-action">
-              <button class="infinite-scroll-button button">Load More</button>
-            </div>
-          </main>
+          </div>
         </div>
+        
       </div>
+      
       <div
         class="sidebar-column col-xl-3 col-lg-4 hidden-xs hidden-sm hidden-md"
         style="
@@ -472,7 +343,6 @@ export default {
 </script>
   
   <style lang="scss" scoped>
-
 .tag-layout {
   display: flex;
   justify-content: center;
@@ -481,6 +351,17 @@ export default {
 .post-right {
   padding: 20px;
   overflow: hidden;
+}
+.post {
+  background: #fff;
+  flex-direction: column;
+  height: 100%;
+}
+.post-column {
+  margin-bottom: 20px;
+}
+.u-placeholder.rectangle {
+  padding-bottom: 70%;
 }
 .post-header {
   margin-bottom: 10px;
@@ -494,6 +375,7 @@ export default {
   width: 30%;
 }
 .content-column {
+  margin-top: 20px;
   width: 70%;
 }
 .post-tag {
@@ -541,8 +423,94 @@ h6 {
   width: 280px;
   float: left;
 }
+.post-image {
+  max-width: 100%;
+}
 .post-wrapper {
+  max-height: 200px;
+  overflow: hidden;
   align-items: center;
 }
+.u-placeholder {
+  position: relative;
+  z-index: 10;
+  background-color: #f4f4f4;
+}
+
+.u-object-fit,
+.u-permalink {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.u-shadow {
+  overflow: hidden;
+  border-radius: 3px;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.02);
+  transition: box-shadow 0.3s ease-in-out;
+}
+.tag-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+a {
+  text-decoration: none;
+}
+.widget-tags .tag-name {
+  font-size: 16px;
+}
+.widget-recent .recent,
+.widget-tags .tag-count {
+  display: flex;
+  align-items: center;
+}
+.widget-tags .tag-count {
+  justify-content: center;
+  min-width: 24px;
+  height: 24px;
+  color: #fff;
+  font-size: 12px;
+  background-color: #2ec4b6;
+  border-radius: 50%;
+  font-weight: 700;
+}
+.widget-recent .recent, .widget-tags .tag-count {
+    display: flex;
+    align-items: center;
+}
+.widget-recent .post-header {
+    overflow: hidden;
+    margin-bottom: 0;
+}
+.post-header {
+    margin-bottom: 10px;
+}
+.widget-recent .post-title {
+    overflow: hidden;
+    font-size: 16px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.post-title {
+    margin-bottom: 0;
+    font-size: 22px;
+}
+.widget-recent .post-date {
+    margin-top: 3px;
+}
+
+.post-date, .post-excerpt {
+    color: #aaa;
+}
+.widget+.widget {
+    margin-top: 30px;
+}
+.theiaStickySidebar{
+  margin-top: 20px;
+}
+
 </style>
   
