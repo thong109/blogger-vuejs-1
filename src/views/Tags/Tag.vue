@@ -327,13 +327,21 @@ export default {
 <style lang="scss" scoped>
 .tag-layout {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-content: center;
 }
 
 .post-right {
   overflow: hidden;
   padding-left: 10px;
+
+}
+
+.post-header {
+  min-width: 350px !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
 }
 
 .post {
@@ -347,6 +355,7 @@ export default {
 }
 
 .tag-list {
+  max-width: 400px;
   margin-top: 10px;
   margin-bottom: 10px;
 }
@@ -355,9 +364,7 @@ export default {
   border-radius: 25%;
 }
 
-.u-placeholder.rectangle {
-  padding-bottom: 70%;
-}
+
 
 .post-header {
   margin-bottom: 10px;
@@ -374,7 +381,6 @@ export default {
 
 .content-column {
   margin-top: 20px;
-  width: 70%;
 }
 
 .post-tag {
@@ -404,14 +410,25 @@ h6 {
   color: black;
 }
 
-.post-excerpt {
-  font-size: 14px;
+.post-header {
+  text-overflow: ellipsis;
+  max-width: 400px;
+}
 
+.post-ti {
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 
 .post-date,
 .post-excerpt {
+  max-width: 400px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
   color: #aaa;
 }
 
@@ -436,7 +453,6 @@ h6 {
 }
 
 .post-wrapper {
-  max-height: 200px;
   overflow: hidden;
   align-items: center;
 }
