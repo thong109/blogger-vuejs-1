@@ -11,14 +11,26 @@
         <div class="upload-file">
           <label for="blog-photo">Upload Cover Photo</label>
           <input type="file" ref="blogPhoto" id="blog-photo" @change="fileChange" accept=".png, .jpg, ,jpeg" />
-          <button @click="openPreview" class="preview" :class="{ 'button-inactive': !this.$store.state.blogPhotoFileURL }">
+          <button @click="openPreview" class="preview"
+            :class="{ 'button-inactive': !this.$store.state.blogPhotoFileURL }">
             Preview Photo
           </button>
           <span>File Chosen: {{ this.$store.state.blogPhotoName }}</span>
         </div>
       </div>
+      <div class="tag-input">
+        <el-tag :key="tag" v-for="tag in dynamicTags" closable :disable-transitions="false" @close="handleClose(tag)">
+          {{ tag }}
+        </el-tag>
+        <el-input class="input-new-tag" v-if="inputVisible" v-model="inputValue" ref="saveTagInput" size="mini"
+          @keyup.enter.native="handleInputConfirm" @blur="handleInputConfirm">
+        </el-input>
+        <el-button v-else class="button-new-tag" size="small" @click="showInput">+ New Tag</el-button>
+      </div>
+
       <div class="editor">
-        <vue-editor :editorOptions="editorSettings" v-model="blogHTML" useCustomImageHandler @image-added="imageHandler" />
+        <vue-editor :editorOptions="editorSettings" v-model="blogHTML" useCustomImageHandler
+          @image-added="imageHandler" />
       </div>
       <div class="blog-actions">
         <button @click="uploadBlog">Publish Blog</button>
@@ -42,6 +54,9 @@ export default {
   name: "CreatePost",
   data() {
     return {
+      dynamicTags: ['All'],
+      inputVisible: false,
+      inputValue: '',
       file: null,
       error: null,
       errorMsg: null,
@@ -58,6 +73,25 @@ export default {
     Loading,
   },
   methods: {
+    handleClose(tag) {
+      this.dynamicTags.splice(this.dynamicTags.indexOf(tag), 1);
+    },
+
+    showInput() {
+      this.inputVisible = true;
+      this.$nextTick = () => {
+        this.$refs.saveTagInput.$refs.input.focus();
+      };
+    },
+
+    handleInputConfirm() {
+      let inputValue = this.inputValue;
+      if (inputValue) {
+        this.dynamicTags.push(inputValue);
+      }
+      this.inputVisible = false;
+      this.inputValue = '';
+    },
     fileChange() {
       this.file = this.$refs.blogPhoto.files[0];
       const fileName = this.file.name;
@@ -115,6 +149,7 @@ export default {
                 blogCoverPhotoName: this.blogCoverPhotoName,
                 blogTitle: this.blogTitle,
                 profileId: this.profileId,
+                tags:  this.dynamicTags,
                 date: timestamp,
               });
               await this.$store.dispatch("getPost");
@@ -167,6 +202,42 @@ export default {
 </script>
 
 <style lang="scss">
+.input-new-tag {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.el-tag+.el-tag {
+  margin-left: 10px;
+}
+
+.button-new-tag {
+  margin-left: 10px !important;
+  height: 32px;
+  line-height: 30px;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.input-new-tag {
+  width: 90px;
+  margin-left: 10px;
+  vertical-align: bottom;
+}
+
+.tag-input {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+.button-new-tag {
+  color: white !important;
+  line-height: 0px !important;
+  margin-left: 5px;
+}
+
 .create-post {
   position: relative;
   height: 100%;

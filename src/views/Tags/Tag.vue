@@ -1,73 +1,58 @@
 <template>
   <div class="blog-cards container">
-    <div
-      class="row2 tag-layout"
-      style="transform: none; height: auto !important"
-    >
+    <div class="row2 tag-layout" style="transform: none; height: auto !important">
       <div class="content-column col-xl-9 col-lg-8">
-        <div class="post-column col-xl-4 col-md-6">
+
+        <div class="post-column col-xl-4 col-md-6" :post="post" v-for="(post, index) in blogPosts" :key="index">
           <div class="post tag-logseq u-shadow">
             <div class="post-wrapper">
               <div class="post-media">
                 <div class="u-placeholder same-height rectangle">
                   <a class="post-image-link" href="">
-                    <img
-                      class="post-image u-placeholder .u-object-fit"
-                      src="https://vuejsexamples.com/content/images/2022/12/Code-2022-21-42-08.jpg"
-                      data-sizes="auto"
-                      alt="Open and edit Logseq pages and config files in Emacs"
-                      sizes="280px"
-                    />
+                    <img class="post-image u-placeholder .u-object-fit" :src="post.blogCoverPhoto" data-sizes="auto"
+                      :alt="post.blogCoverPhotoName" sizes="280px" />
                   </a>
                 </div>
               </div>
               <div class="post-right">
                 <header class="post-header">
-                  <a class="post-tag" href="/tag/logseq/">Logseq</a>
+                  <a class="post-tag" href="/tag/logseq/">{{ new Date(post.blogDate).toLocaleString("en-us", {
+                      dateStyle: "long"
+                    })
+                  }}</a>
                   <h2 class="post-title">
-                    <a
-                      class="post-title-link"
-                      href="/open-and-edit-logseq-pages-and-config-files-in-emacs/"
-                      >Open and edit Logseq pages and config files in Emacs</a
-                    >
+                    <a class="post-title-link" href="/open-and-edit-logseq-pages-and-config-files-in-emacs/">{{
+                        post.blogTitle
+                    }}</a>
                   </h2>
                 </header>
                 <div class="post-excerpt">
-                  Open and edit Logseq pages and config files in Emacs
+                  {{ post.blogTitle
+                  }}
                 </div>
-                <span class="post-card-tags">21 December 2022</span>
+                <div class="tag-list">
+                  <span class="tag-group__title"> Tags: </span>
+
+                  <el-tag v-for="item in post.blogTags" :key="item" type="success" effect="dark">
+                    <span class="tag-group__title"> {{ item }}</span>
+
+                  </el-tag>
+                </div>
+                <router-link class="link" :to="{ name: 'ViewBlog', params: { blogid: post.blogID } }">
+                  View The Post
+                  <Arrow class="arrow" />
+                </router-link>
               </div>
             </div>
           </div>
         </div>
-        
+
       </div>
-      
-      <div
-        class="sidebar-column col-xl-3 col-lg-4 hidden-xs hidden-sm hidden-md"
-        style="
-          position: relative;
-          overflow: visible;
-          box-sizing: border-box;
-          min-height: 1px;
-          height: auto !important;
-        "
-      >
-        <div
-          class="theiaStickySidebar"
-          style="
-            padding-top: 0px;
-            padding-bottom: 1px;
-            position: static;
-            transform: none;
-            height: auto !important;
-          "
-        >
+
+      <div class="sidebar-column col-xl-3 col-lg-4 hidden-xs hidden-sm hidden-md" s>
+        <div class="theiaStickySidebar">
           <aside class="widget-area" style="height: auto !important">
-            <div
-              class="widget widget-tags u-shadow"
-              style="height: auto !important"
-            >
+            <div class="widget widget-tags u-shadow" style="height: auto !important">
               <h4 class="widget-title">Tags</h4>
               <div class="tag-feed">
                 <div class="tag">
@@ -258,11 +243,8 @@
                 <article class="recent">
                   <header class="post-header">
                     <h5 class="post-title">
-                      <a
-                        class="post-title-link"
-                        href="/open-and-edit-logseq-pages-and-config-files-in-emacs/"
-                        >Open and edit Logseq pages and config files in Emacs</a
-                      >
+                      <a class="post-title-link" href="/open-and-edit-logseq-pages-and-config-files-in-emacs/">Open and
+                        edit Logseq pages and config files in Emacs</a>
                     </h5>
                     <time class="post-date" datetime="2022-12-21">
                       Dec 21, 2022
@@ -272,12 +254,9 @@
                 <article class="recent">
                   <header class="post-header">
                     <h5 class="post-title">
-                      <a
-                        class="post-title-link"
-                        href="/a-gmail-clone-made-with-vue-3-tailwind-css-and-firebase/"
-                        >A Gmail Clone made with Vue 3, Tailwind CSS and
-                        Firebase</a
-                      >
+                      <a class="post-title-link" href="/a-gmail-clone-made-with-vue-3-tailwind-css-and-firebase/">A
+                        Gmail Clone made with Vue 3, Tailwind CSS and
+                        Firebase</a>
                     </h5>
                     <time class="post-date" datetime="2022-12-21">
                       Dec 21, 2022
@@ -287,12 +266,10 @@
                 <article class="recent">
                   <header class="post-header">
                     <h5 class="post-title">
-                      <a
-                        class="post-title-link"
-                        href="/a-little-app-to-make-it-easier-to-create-leaving-twitter-header-images/"
-                        >A little app to make it easier to create leaving
-                        twitter header images</a
-                      >
+                      <a class="post-title-link"
+                        href="/a-little-app-to-make-it-easier-to-create-leaving-twitter-header-images/">A little app to
+                        make it easier to create leaving
+                        twitter header images</a>
                     </h5>
                     <time class="post-date" datetime="2022-12-21">
                       Dec 21, 2022
@@ -302,11 +279,8 @@
                 <article class="recent">
                   <header class="post-header">
                     <h5 class="post-title">
-                      <a
-                        class="post-title-link"
-                        href="/add-animated-subtitle-to-your-video-automatically/"
-                        >Add animated subtitle to your video automatically</a
-                      >
+                      <a class="post-title-link" href="/add-animated-subtitle-to-your-video-automatically/">Add animated
+                        subtitle to your video automatically</a>
                     </h5>
                     <time class="post-date" datetime="2022-12-20">
                       Dec 20, 2022
@@ -316,11 +290,8 @@
                 <article class="recent">
                   <header class="post-header">
                     <h5 class="post-title">
-                      <a
-                        class="post-title-link"
-                        href="/a-github-profile-editor-with-drag-and-drop/"
-                        >A github profile editor with drag and drop</a
-                      >
+                      <a class="post-title-link" href="/a-github-profile-editor-with-drag-and-drop/">A github profile
+                        editor with drag and drop</a>
                     </h5>
                     <time class="post-date" datetime="2022-12-19">
                       Dec 19, 2022
@@ -336,36 +307,62 @@
   </div>
 </template>
   
-  <script>
+<script>
+import Arrow from "../../assets/Icons/arrow-right-light.svg";
+
 export default {
   name: "tags",
+  components: {
+    Arrow,
+
+  },
+  computed: {
+    blogPosts() {
+      return this.$store.state.blogPosts;
+    },
+  },
 };
 </script>
   
-  <style lang="scss" scoped>
+<style lang="scss" scoped>
 .tag-layout {
   display: flex;
   justify-content: center;
   align-content: center;
 }
+
 .post-right {
-  padding: 20px;
   overflow: hidden;
+  padding-left: 10px;
 }
+
 .post {
   background: #fff;
   flex-direction: column;
   height: 100%;
 }
+
 .post-column {
   margin-bottom: 20px;
 }
+
+.tag-list {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.el-tag {
+  border-radius: 25%;
+}
+
 .u-placeholder.rectangle {
   padding-bottom: 70%;
 }
+
 .post-header {
   margin-bottom: 10px;
 }
+
 .sidebar-column {
   position: relative;
   overflow: visible;
@@ -374,10 +371,12 @@ export default {
   height: auto !important;
   width: 30%;
 }
+
 .content-column {
   margin-top: 20px;
   width: 70%;
 }
+
 .post-tag {
   display: inline-block;
   margin-bottom: 8px;
@@ -389,10 +388,12 @@ export default {
   background-color: #2ec4b6;
   border-radius: 15px;
 }
+
 .post-title {
   margin-bottom: 0;
   font-size: 22px;
 }
+
 a,
 h1,
 h2,
@@ -402,13 +403,18 @@ h5,
 h6 {
   color: black;
 }
+
 .post-excerpt {
   font-size: 14px;
+
 }
+
+
 .post-date,
 .post-excerpt {
   color: #aaa;
 }
+
 .post-card-tags {
   display: block;
   margin-top: 6px;
@@ -419,22 +425,25 @@ h6 {
   letter-spacing: 0.5px;
   text-transform: uppercase;
 }
+
 .post-media {
   width: 280px;
   float: left;
 }
+
 .post-image {
   max-width: 100%;
 }
+
 .post-wrapper {
   max-height: 200px;
   overflow: hidden;
   align-items: center;
 }
+
 .u-placeholder {
   position: relative;
   z-index: 10;
-  background-color: #f4f4f4;
 }
 
 .u-object-fit,
@@ -443,29 +452,41 @@ h6 {
   top: 0;
   left: 0;
 }
+
+.el-tag--dark.el-tag--success {
+  background-color: #fdcb6e;
+  border-color: #fdcb6e;
+  color: #fff;
+}
+
 .u-shadow {
   overflow: hidden;
   border-radius: 3px;
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.02);
   transition: box-shadow 0.3s ease-in-out;
 }
+
 .tag-link {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 10px;
 }
+
 a {
   text-decoration: none;
 }
+
 .widget-tags .tag-name {
   font-size: 16px;
 }
+
 .widget-recent .recent,
 .widget-tags .tag-count {
   display: flex;
   align-items: center;
 }
+
 .widget-tags .tag-count {
   justify-content: center;
   min-width: 24px;
@@ -476,41 +497,49 @@ a {
   border-radius: 50%;
   font-weight: 700;
 }
-.widget-recent .recent, .widget-tags .tag-count {
-    display: flex;
-    align-items: center;
+
+.widget-recent .recent,
+.widget-tags .tag-count {
+  display: flex;
+  align-items: center;
 }
+
 .widget-recent .post-header {
-    overflow: hidden;
-    margin-bottom: 0;
+  overflow: hidden;
+  margin-bottom: 0;
 }
+
 .post-header {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
+
 .widget-recent .post-title {
-    overflow: hidden;
-    font-size: 16px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+  overflow: hidden;
+  font-size: 16px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .post-title {
-    margin-bottom: 0;
-    font-size: 22px;
-}
-.widget-recent .post-date {
-    margin-top: 3px;
+  margin-bottom: 0;
+  font-size: 22px;
 }
 
-.post-date, .post-excerpt {
-    color: #aaa;
+.widget-recent .post-date {
+  margin-top: 3px;
 }
+
+.post-date,
+.post-excerpt {
+  color: #aaa;
+}
+
 .widget+.widget {
-    margin-top: 30px;
+  margin-top: 30px;
 }
-.theiaStickySidebar{
+
+.theiaStickySidebar {
   margin-top: 20px;
 }
-
 </style>
   

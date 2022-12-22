@@ -113,6 +113,7 @@ export default new Vuex.Store({
             blogTitle: doc.data().blogTitle,
             blogDate: doc.data().date,
             blogCoverPhotoName: doc.data().blogCoverPhotoName,
+            blogTags: doc.data().tags
           };
           state.blogPosts.push(data);
         }
