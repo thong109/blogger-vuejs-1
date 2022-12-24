@@ -133,7 +133,7 @@ export default {
     }
 
     @media (min-width: 800px) {
-      flex: 4;
+      flex: 8;
     }
 
     img {

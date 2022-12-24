@@ -175,7 +175,7 @@ export default {
 }
 
 .el-tag {
-    border-radius: 25%;
+    border-radius: 5%;
 }
 
 
