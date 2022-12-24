@@ -1,6 +1,6 @@
 <template>
     <div class="widget widget-recent u-shadow">
-        <h4 class="widget-title">Recent Posts</h4>
+        <h4 class="widget-title">Bài Viết Gần Đây</h4>
         <div class="recent-posts">
             <article class="recent" :post="post" v-for="(post, index) in blogPosts" :key="index">
                 <header class="post-header">
