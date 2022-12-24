@@ -8,7 +8,7 @@
         <ul v-show="!mobile">
           <router-link class="link" :to="{ name: 'Home' }">Trang Chủ</router-link>
           <router-link class="link" :to="{ name: 'Blogs' }">Bài Viết</router-link>
-          <router-link v-if="admin" class="link" :to="{ name: 'CreatePost' }">Đăng Nhập</router-link> 
+          <router-link v-if="admin" class="link" :to="{ name: 'CreatePost' }">Tạo Bài Viết</router-link> 
           <router-link  class="link" :to="{ name: 'Tag' }">Thể loại</router-link> 
           <router-link v-if="!user" class="link" :to="{ name: 'Login' }">Đăng Nhập</router-link>
         </ul>
