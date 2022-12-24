@@ -1,8 +1,14 @@
 module.exports = {
-  publicPath: undefined,
-  outputDir: '../public/site/dist',
-  assetsDir: undefined,
-  productionSourceMap: undefined,
-  parallel: undefined,
-  css: undefined
-}
+  chainWebpack: (config) => {
+    const svgRule = config.module.rule("svg");
+
+    svgRule.uses.clear();
+
+    svgRule
+      .use("babel-loader")
+      .loader("babel-loader")
+      .end()
+      .use("vue-svg-loader")
+      .loader("vue-svg-loader");
+  },
+};
