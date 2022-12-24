@@ -7,10 +7,12 @@
         <p v-if="post.welcomeScreen">{{ post.blogPost }}</p>
         <p class="content-preview" v-else v-html="post.blogHTML"></p>
         <router-link class="link link-light" v-if="post.welcomeScreen" :to="{ name: 'Blogs' }">
-         Khám Phá<Arrow class="arrow arrow-light" />
+          Khám Phá
+          <Arrow class="arrow arrow-light" />
         </router-link>
         <router-link class="link" v-else :to="{ name: 'ViewBlog', params: { blogid: this.post.blogID } }">
-          Xem Chi Tiết<Arrow class="arrow" />
+          Xem Chi Tiết
+          <Arrow class="arrow" />
         </router-link>
       </div>
     </div>
@@ -42,6 +44,7 @@ export default {
   display: flex;
   flex-direction: column;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+
   @media (min-width: 700px) {
     min-height: 650px;
     max-height: 650px;
@@ -55,9 +58,11 @@ export default {
     align-items: center;
     flex: 4;
     order: 2;
+
     @media (min-width: 700px) {
       order: 1;
     }
+
     @media (min-width: 800px) {
       flex: 3;
     }
@@ -65,6 +70,7 @@ export default {
     div {
       max-width: 375px;
       padding: 72px 24px;
+
       @media (min-width: 700px) {
         padding: 0 24px;
       }
@@ -74,6 +80,7 @@ export default {
         font-weight: 300;
         text-transform: uppercase;
         margin-bottom: 24px;
+
         @media (min-width: 700px) {
           font-size: 40px;
         }
@@ -119,10 +126,12 @@ export default {
     order: 1;
     flex: 3;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    margin-top: 10px;
 
     @media (min-width: 700px) {
       order: 2;
     }
+
     @media (min-width: 800px) {
       flex: 4;
     }
@@ -139,6 +148,7 @@ export default {
     .blog-content {
       order: 2;
     }
+
     .blog-photo {
       order: 1;
     }

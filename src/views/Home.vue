@@ -58,8 +58,8 @@ export default {
     font-size: 28px;
     margin-bottom: 32px;
   }
-}
 
+}
 .updates {
   .container {
     padding: 100px 25px;
