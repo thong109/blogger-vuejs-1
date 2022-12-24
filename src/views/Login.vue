@@ -18,9 +18,9 @@
         <div v-show="error" class="error">{{ this.errorMsg }}</div>
       </div>
       <router-link class="forgot-password" :to="{ name: 'ForgotPassword' }"
-        >Forgot your password?</router-link
+        >Quên Mật Khẩu?</router-link
       >
-      <button @click.prevent="signIn">Sign In</button>
+      <button @click.prevent="signIn">Đăng Nhập</button>
       <div class="angle"></div>
     </form>
     <div class="background"></div>
