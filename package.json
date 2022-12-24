@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
-  },
+    "serve": "vue-cli-service --openssl-legacy-provider serve",
+    "build": "vue-cli-service --openssl-legacy-provider build",
+    "lint": "vue-cli-service --openssl-legacy-provider lint"
+},
   "dependencies": {
     "@google-cloud/storage": "^6.8.0",
     "blurhash": "^2.0.4",
@@ -32,7 +32,7 @@
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-plugin-router": "~4.5.0",
     "@vue/cli-plugin-vuex": "~4.5.0",
-    
+
     "@vue/cli-service": "~4.5.0",
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
