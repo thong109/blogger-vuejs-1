@@ -3,28 +3,19 @@
     <div class="container">
       <div class="left">
         <div class="col-1">
-          <router-link class="header" :to="{ name: 'Home' }">FireBlogs</router-link>
+          <router-link class="header" :to="{ name: 'Home' }">Đổi Mới Dạy Học Bằng UDCNTT</router-link>
           <ul>
             <li>
-              <a href=" https://wa.me/00972595840807" target="_blank"><whatsapp class="svg-icon"/></a>
+              <a href=" https://facebook.com/thangneymar44" target="_blank"><whatsapp class="svg-icon"/></a>
             </li>
-            <li>
-              <a href="https://twitter.com/devThaer" target="_blank"><twitter class="svg-icon"/></a>
-            </li>
-            <li>
-              <a href="https://www.instagram.com/thaer_fayyad94/" target="_blank"><instagram class="svg-icon"/></a>
-            </li>
-            <li>
-              <a href="https://www.linkedin.com/in/thaer-fayyad/" target="_blank"><linkedin class="svg-icon"/></a>
-            </li>
+
           </ul>
         </div>
         <div class="col-2">
           <ul>
-            <router-link class="link" :to="{ name: 'Home' }">Home</router-link>
-            <router-link class="link" :to="{ name: 'Blogs' }">Blogs</router-link>
-            <router-link v-if="admin" class="link" :to="{ name: 'CreatePost' }">Create Post</router-link>
-            <router-link v-if="!user" class="link" :to="{ name: 'Login' }">Login In / Register</router-link>
+            <router-link class="link" :to="{ name: 'Home' }">Trang Chủ</router-link>
+            <router-link class="link" :to="{ name: 'Blogs' }">Bài Viết</router-link>
+            <router-link v-if="!user" class="link" :to="{ name: 'Login' }">Đăng Nhập</router-link>
           </ul>
         </div>
       </div>
@@ -38,17 +29,13 @@
 <script>
 // import youTube from "../assets/Icons/youtube-brands.svg";
 import whatsapp from "../assets/Icons/whatsapp-brands.svg";
-import twitter from "../assets/Icons/twitter-brands.svg";
-import instagram from "../assets/Icons/instagram-brands.svg";
-import linkedin from "../assets/Icons/linkedin-brands.svg";
+
 export default {
   name: "footer-vue",
   components: {
     // youTube,
     whatsapp,
-    twitter,
-    instagram,
-    linkedin,
+
   },
   computed: {
     user() {

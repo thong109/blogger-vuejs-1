@@ -1,6 +1,9 @@
 <template>
   <div class="blog-card-wrap">
+    <el-input placeholder="Tìm bài viết..." v-model="keyWord"></el-input>
+
     <div class="blog-cards container">
+
       <div v-if="profileAdmin" class="toggle-edit">
         <span>Toggle Editing Post</span>
         <input type="checkbox" v-model="editPost" />
@@ -15,9 +18,20 @@ import BlogCard from "../components/BlogCard";
 export default {
   name: "blogs",
   components: { BlogCard },
+  data() {
+    return {
+      keyWord: ''
+    }
+  },
   computed: {
     blogPosts() {
-      return this.$store.state.blogPosts;
+      if (!this.keyWord) {
+        return this.$store.state.blogPosts;
+
+      }
+      return this.$store.state.blogPosts.filter(post => {
+        return post.blogTitle.toLowerCase().includes(this.keyWord.toLowerCase())
+      })
     },
     editPost: {
       get() {
@@ -38,6 +52,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.el-input {
+  width: 25%;
+  margin: 0 auto;
+  display: flex;
+  padding-bottom: 10px;
+}
+
+.el-input__inner {
+  border: 1px solid !important;
+}
+
 .blog-cards {
   position: relative;
 

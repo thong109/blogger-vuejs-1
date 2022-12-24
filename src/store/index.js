@@ -8,6 +8,8 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    tags: [],
+    tagsCount: "",
     blogPosts: [],
     postLoaded: null,
     blogHTML: "Write your blog title here...",
@@ -57,9 +59,12 @@ export default new Vuex.Store({
       state.blogHTML = payload.blogHTML;
       state.blogPhotoFileURL = payload.blogCoverPhoto;
       state.blogPhotoName = payload.blogCoverPhotoName;
+      state.blogTags=  payload.blogTags
     },
     filterBlogPost(state, payload) {
-      state.blogPosts = state.blogPosts.filter((post) => post.blogID !== payload);
+      state.blogPosts = state.blogPosts.filter(
+        (post) => post.blogID !== payload
+      );
     },
     updateUser(state, payload) {
       state.user = payload;
@@ -78,7 +83,8 @@ export default new Vuex.Store({
     },
     setProfileInitials(state) {
       state.profileInitials =
-        state.profileFirstName.match(/(\b\S)?/g).join("") + state.profileLastName.match(/(\b\S)?/g).join("");
+        state.profileFirstName.match(/(\b\S)?/g).join("") +
+        state.profileLastName.match(/(\b\S)?/g).join("");
     },
     changeFirstName(state, payload) {
       state.profileFirstName = payload;
@@ -92,13 +98,15 @@ export default new Vuex.Store({
   },
   actions: {
     async getCurrentUser({ commit }, user) {
-      const dataBase = await db.collection("users").doc(firebase.auth().currentUser.uid);
+      const dataBase = await db
+        .collection("users")
+        .doc(firebase.auth().currentUser.uid);
       const dbResults = await dataBase.get();
       commit("setProfileInfo", dbResults);
       commit("setProfileInitials");
       const token = await user.getIdTokenResult();
       const admin = await token.claims.admin;
-      
+
       commit("setProfileAdmin", admin);
     },
     async getPost({ state }) {
@@ -113,13 +121,24 @@ export default new Vuex.Store({
             blogTitle: doc.data().blogTitle,
             blogDate: doc.data().date,
             blogCoverPhotoName: doc.data().blogCoverPhotoName,
-            blogTags: doc.data().tags
+            blogTags: doc.data().tags,
+            blogViews: doc.data().blogViews
           };
+        
           state.blogPosts.push(data);
         }
       });
+      let blogTags = state.blogPosts.map(({ blogTags }) => blogTags)
+      const tagList = blogTags.flat();
+      this.state.tags = tagList;
+      var tagCountResult = tagList.reduce(function(obj, b) {
+        obj[b] = ++obj[b] || 1;
+        return obj;
+      }, {});
+      state.tagsCount = tagCountResult 
       state.postLoaded = true;
     },
+
     async updatePost({ commit, dispatch }, payload) {
       commit("filterBlogPost", payload);
       await dispatch("getPost");

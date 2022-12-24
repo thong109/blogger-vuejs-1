@@ -2,15 +2,15 @@
   <header>
     <nav class="container">
       <div class="branding">
-        <router-link class="header" :to="{ name: 'Home' }">FireBlogs</router-link>
+        <router-link class="header" :to="{ name: 'Home' }">Đổi Mới Dạy Học Bằng UDCNTT</router-link>
       </div>
       <div class="nav-links">
         <ul v-show="!mobile">
-          <router-link class="link" :to="{ name: 'Home' }">Home</router-link>
-          <router-link class="link" :to="{ name: 'Blogs' }">Blogs</router-link>
-          <router-link  class="link" :to="{ name: 'CreatePost' }">Create Post</router-link> 
-          <router-link  class="link" :to="{ name: 'Tag' }">Tags</router-link> 
-          <router-link v-if="!user" class="link" :to="{ name: 'Login' }">Login/Register</router-link>
+          <router-link class="link" :to="{ name: 'Home' }">Trang Chủ</router-link>
+          <router-link class="link" :to="{ name: 'Blogs' }">Bài Viết</router-link>
+          <router-link v-if="admin" class="link" :to="{ name: 'CreatePost' }">Đăng Nhập</router-link> 
+          <router-link  class="link" :to="{ name: 'Tag' }">Thể loại</router-link> 
+          <router-link v-if="!user" class="link" :to="{ name: 'Login' }">Đăng Nhập</router-link>
         </ul>
         <div v-if="user" :class="{ 'mobile-user-menu': mobile }" @click="toggleProfileMenu" class="profile" ref="profile">
           <span>{{ this.$store.state.profileInitials }}</span>
@@ -48,10 +48,11 @@
     <menuIcon @click="toggleMobileNav" class="menu-icon" v-show="mobile" />
     <transition name="mobile-nav">
       <ul class="mobile-nav" v-show="mobileNav">
-        <router-link class="link" :to="{ name: 'Home' }">Home</router-link>
-        <router-link class="link" :to="{ name: 'Blogs' }">Blogs</router-link>
-        <router-link v-if="admin" class="link" :to="{ name: 'CreatePost' }">Create Post</router-link>
-        <router-link v-if="!user" class="link" :to="{ name: 'Login' }">Login/Register</router-link>
+        <router-link class="link" :to="{ name: 'Home' }">Trang Chủ</router-link>
+        <router-link class="link" :to="{ name: 'Blogs' }">Bài Viết</router-link>
+        <router-link  class="link" :to="{ name: 'Tag' }">Thể loại</router-link> 
+        <router-link v-if="admin" class="link" :to="{ name: 'CreatePost' }">Tạo Bài Viết</router-link>
+        <router-link v-if="!user" class="link" :to="{ name: 'Login' }">Đăng Nhập</router-link>
       </ul>
     </transition>
   </header>

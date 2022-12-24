@@ -85,7 +85,7 @@ export default {
     },
 
     handleInputConfirm() {
-      let inputValue = this.inputValue;
+      let inputValue = this.inputValue.charAt(0).toUpperCase() + this.inputValue.slice(1);
       if (inputValue) {
         this.dynamicTags.push(inputValue);
       }
@@ -150,6 +150,7 @@ export default {
                 blogTitle: this.blogTitle,
                 profileId: this.profileId,
                 tags:  this.dynamicTags,
+                blogViews: 0,
                 date: timestamp,
               });
               await this.$store.dispatch("getPost");

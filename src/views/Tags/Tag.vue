@@ -1,8 +1,9 @@
 <template>
   <div class="blog-cards container">
+    <el-input placeholder="Tìm bài viết..." v-model="keyWord"></el-input>
+
     <div class="row2 tag-layout" style="transform: none; height: auto !important">
       <div class="content-column col-xl-9 col-lg-8">
-
         <div class="post-column col-xl-4 col-md-6" :post="post" v-for="(post, index) in blogPosts" :key="index">
           <div class="post tag-logseq u-shadow">
             <div class="post-wrapper">
@@ -16,325 +17,102 @@
               </div>
               <div class="post-right">
                 <header class="post-header">
-                  <a class="post-tag" href="/tag/logseq/">{{ new Date(post.blogDate).toLocaleString("en-us", {
-                      dateStyle: "long"
-                    })
+                  <a class="post-tag" href="/tag/logseq/">{{
+                      new Date(post.blogDate).toLocaleString("en-us", {
+                        dateStyle: "long",
+                      })
                   }}</a>
-                  <h2 class="post-title">
-                    <a class="post-title-link" href="/open-and-edit-logseq-pages-and-config-files-in-emacs/">{{
-                        post.blogTitle
-                    }}</a>
-                  </h2>
+                  <router-link class="link" :to="{ name: 'ViewBlog', params: { blogid: post.blogID } }">
+                    <h2 class="post-title">
+                      <a class="post-title-link" href="#">{{
+                          post.blogTitle
+                      }}</a>
+                    </h2>
+                  </router-link>
+
                 </header>
                 <div class="post-excerpt">
-                  {{ post.blogTitle
-                  }}
+                  {{ post.blogTitle }}
                 </div>
                 <div class="tag-list">
                   <span class="tag-group__title"> Tags: </span>
 
                   <el-tag v-for="item in post.blogTags" :key="item" type="success" effect="dark">
-                    <span class="tag-group__title"> {{ item }}</span>
-
+                    <router-link class="tag-group__title tag-item"
+                      :to="{ name: 'ViewBlogByTag', params: { tagName: item } }">
+                      {{ item }}</router-link>
                   </el-tag>
                 </div>
                 <router-link class="link" :to="{ name: 'ViewBlog', params: { blogid: post.blogID } }">
-                  View The Post
+                  Xem Chi Tiết
                   <Arrow class="arrow" />
                 </router-link>
               </div>
             </div>
           </div>
         </div>
-
       </div>
-
       <div class="sidebar-column col-xl-3 col-lg-4 hidden-xs hidden-sm hidden-md" s>
         <div class="theiaStickySidebar">
           <aside class="widget-area" style="height: auto !important">
-            <div class="widget widget-tags u-shadow" style="height: auto !important">
-              <h4 class="widget-title">Tags</h4>
-              <div class="tag-feed">
-                <div class="tag">
-                  <a class="tag-link" href="/tag/app-tag/">
-                    <span class="tag-name">App</span>
-                    <span class="tag-count">483</span>
-                  </a>
-                </div>
-                <div class="tag">
-                  <a class="tag-link" href="/tag/ui/">
-                    <span class="tag-name">UI</span>
-                    <span class="tag-count">244</span>
-                  </a>
-                </div>
-                <div class="tag">
-                  <a class="tag-link" href="/tag/tailwind-css/">
-                    <span class="tag-name">Tailwind CSS</span>
-                    <span class="tag-count">157</span>
-                  </a>
-                </div>
-                <div class="tag">
-                  <a class="tag-link" href="/tag/games/">
-                    <span class="tag-name">Games</span>
-                    <span class="tag-count">136</span>
-                  </a>
-                </div>
-                <div class="tag">
-                  <a class="tag-link" href="/tag/miscellaneous/">
-                    <span class="tag-name">Miscellaneous</span>
-                    <span class="tag-count">136</span>
-                  </a>
-                </div>
-                <div class="tag">
-                  <a class="tag-link" href="/tag/calendar/">
-                    <span class="tag-name">Calendar</span>
-                    <span class="tag-count">129</span>
-                  </a>
-                </div>
-                <div class="tag">
-                  <a class="tag-link" href="/tag/nuxt/">
-                    <span class="tag-name">Nuxt</span>
-                    <span class="tag-count">127</span>
-                  </a>
-                </div>
-                <div class="tag">
-                  <a class="tag-link" href="/tag/images/">
-                    <span class="tag-name">Images</span>
-                    <span class="tag-count">121</span>
-                  </a>
-                </div>
-                <div class="tag">
-                  <a class="tag-link" href="/tag/todo/">
-                    <span class="tag-name">Todo</span>
-                    <span class="tag-count">112</span>
-                  </a>
-                </div>
-                <div class="tag">
-                  <a class="tag-link" href="/tag/dashboard-tag/">
-                    <span class="tag-name">Dashboard</span>
-                    <span class="tag-count">108</span>
-                  </a>
-                </div>
-                <div class="tag">
-                  <a class="tag-link" href="/tag/template/">
-                    <span class="tag-name">Template</span>
-                    <span class="tag-count">106</span>
-                  </a>
-                </div>
-                <div class="tag">
-                  <a class="tag-link" href="/tag/website/">
-                    <span class="tag-name">Website</span>
-                    <span class="tag-count">103</span>
-                  </a>
-                </div>
-                <div class="tag">
-                  <a class="tag-link" href="/tag/editor/">
-                    <span class="tag-name">Editor</span>
-                    <span class="tag-count">101</span>
-                  </a>
-                </div>
-                <div class="tag">
-                  <a class="tag-link" href="/tag/echarts/">
-                    <span class="tag-name">Charts</span>
-                    <span class="tag-count">98</span>
-                  </a>
-                </div>
-                <div class="tag">
-                  <a class="tag-link" href="/tag/picker/">
-                    <span class="tag-name">Picker</span>
-                    <span class="tag-count">92</span>
-                  </a>
-                </div>
-                <div class="tag">
-                  <a class="tag-link" href="/tag/table/">
-                    <span class="tag-name">Table</span>
-                    <span class="tag-count">90</span>
-                  </a>
-                </div>
-                <div class="tag">
-                  <a class="tag-link" href="/tag/vite/">
-                    <span class="tag-name">Vite</span>
-                    <span class="tag-count">88</span>
-                  </a>
-                </div>
-                <div class="tag">
-                  <a class="tag-link" href="/tag/form/">
-                    <span class="tag-name">Form</span>
-                    <span class="tag-count">87</span>
-                  </a>
-                </div>
-                <div class="tag">
-                  <a class="tag-link" href="/tag/admin-template/">
-                    <span class="tag-name">Admin Template</span>
-                    <span class="tag-count">86</span>
-                  </a>
-                </div>
-                <div class="tag">
-                  <a class="tag-link" href="/tag/typescript/">
-                    <span class="tag-name">Typescript</span>
-                    <span class="tag-count">83</span>
-                  </a>
-                </div>
-                <div class="tag">
-                  <a class="tag-link" href="/tag/scroll/">
-                    <span class="tag-name">Scroll</span>
-                    <span class="tag-count">80</span>
-                  </a>
-                </div>
-                <div class="tag">
-                  <a class="tag-link" href="/tag/input/">
-                    <span class="tag-name">Input</span>
-                    <span class="tag-count">79</span>
-                  </a>
-                </div>
-                <div class="tag">
-                  <a class="tag-link" href="/tag/slider/">
-                    <span class="tag-name">Slider</span>
-                    <span class="tag-count">76</span>
-                  </a>
-                </div>
-                <div class="tag">
-                  <a class="tag-link" href="/tag/tool/">
-                    <span class="tag-name">Tool</span>
-                    <span class="tag-count">75</span>
-                  </a>
-                </div>
-                <div class="tag">
-                  <a class="tag-link" href="/tag/modal/">
-                    <span class="tag-name">Modal</span>
-                    <span class="tag-count">71</span>
-                  </a>
-                </div>
-                <div class="tag">
-                  <a class="tag-link" href="/tag/starter/">
-                    <span class="tag-name">Starter</span>
-                    <span class="tag-count">70</span>
-                  </a>
-                </div>
-                <div class="tag">
-                  <a class="tag-link" href="/tag/select/">
-                    <span class="tag-name">Select</span>
-                    <span class="tag-count">67</span>
-                  </a>
-                </div>
-                <div class="tag">
-                  <a class="tag-link" href="/tag/menu/">
-                    <span class="tag-name">Menu</span>
-                    <span class="tag-count">66</span>
-                  </a>
-                </div>
-                <div class="tag">
-                  <a class="tag-link" href="/tag/api/">
-                    <span class="tag-name">API</span>
-                    <span class="tag-count">64</span>
-                  </a>
-                </div>
-                <div class="tag">
-                  <a class="tag-link" href="/tag/drag/">
-                    <span class="tag-name">Drag</span>
-                    <span class="tag-count">61</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="widget widget-recent u-shadow">
-              <h4 class="widget-title">Recent Posts</h4>
-              <div class="recent-posts">
-                <article class="recent">
-                  <header class="post-header">
-                    <h5 class="post-title">
-                      <a class="post-title-link" href="/open-and-edit-logseq-pages-and-config-files-in-emacs/">Open and
-                        edit Logseq pages and config files in Emacs</a>
-                    </h5>
-                    <time class="post-date" datetime="2022-12-21">
-                      Dec 21, 2022
-                    </time>
-                  </header>
-                </article>
-                <article class="recent">
-                  <header class="post-header">
-                    <h5 class="post-title">
-                      <a class="post-title-link" href="/a-gmail-clone-made-with-vue-3-tailwind-css-and-firebase/">A
-                        Gmail Clone made with Vue 3, Tailwind CSS and
-                        Firebase</a>
-                    </h5>
-                    <time class="post-date" datetime="2022-12-21">
-                      Dec 21, 2022
-                    </time>
-                  </header>
-                </article>
-                <article class="recent">
-                  <header class="post-header">
-                    <h5 class="post-title">
-                      <a class="post-title-link"
-                        href="/a-little-app-to-make-it-easier-to-create-leaving-twitter-header-images/">A little app to
-                        make it easier to create leaving
-                        twitter header images</a>
-                    </h5>
-                    <time class="post-date" datetime="2022-12-21">
-                      Dec 21, 2022
-                    </time>
-                  </header>
-                </article>
-                <article class="recent">
-                  <header class="post-header">
-                    <h5 class="post-title">
-                      <a class="post-title-link" href="/add-animated-subtitle-to-your-video-automatically/">Add animated
-                        subtitle to your video automatically</a>
-                    </h5>
-                    <time class="post-date" datetime="2022-12-20">
-                      Dec 20, 2022
-                    </time>
-                  </header>
-                </article>
-                <article class="recent">
-                  <header class="post-header">
-                    <h5 class="post-title">
-                      <a class="post-title-link" href="/a-github-profile-editor-with-drag-and-drop/">A github profile
-                        editor with drag and drop</a>
-                    </h5>
-                    <time class="post-date" datetime="2022-12-19">
-                      Dec 19, 2022
-                    </time>
-                  </header>
-                </article>
-              </div>
-            </div>
+            <CardTag />
+            <RecentPost />
           </aside>
         </div>
       </div>
     </div>
   </div>
 </template>
-  
+
 <script>
 import Arrow from "../../assets/Icons/arrow-right-light.svg";
-
+import RecentPost from "../RecentPost";
+import CardTag from "./cardTag";
 export default {
   name: "tags",
+  data() {
+    return {
+      keyWord: "",
+    };
+  },
   components: {
     Arrow,
-
+    RecentPost,
+    CardTag,
   },
   computed: {
     blogPosts() {
-      return this.$store.state.blogPosts;
+      if (!this.keyWord) {
+        return this.$store.state.blogPosts;
+      }
+      return this.$store.state.blogPosts.filter((post) => {
+        return post.blogTitle
+          .toLowerCase()
+          .includes(this.keyWord.toLowerCase());
+      });
     },
   },
 };
 </script>
-  
+
 <style lang="scss" scoped>
+.el-input {
+  width: 25%;
+  margin: 0 auto;
+  display: flex;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
 .tag-layout {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-content: center;
 }
 
 .post-right {
   overflow: hidden;
   padding-left: 10px;
-
 }
 
 .post-header {
@@ -342,6 +120,10 @@ export default {
   overflow-wrap: break-word;
   word-wrap: break-word;
   word-break: break-word;
+}
+
+.tag-item {
+  color: white;
 }
 
 .post {
@@ -354,6 +136,10 @@ export default {
   margin-bottom: 20px;
 }
 
+.widget-recent {
+  margin-bottom: 20px;
+}
+
 .tag-list {
   max-width: 400px;
   margin-top: 10px;
@@ -363,8 +149,6 @@ export default {
 .el-tag {
   border-radius: 25%;
 }
-
-
 
 .post-header {
   margin-bottom: 10px;
@@ -421,7 +205,6 @@ h6 {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
 
 .post-date,
 .post-excerpt {
@@ -558,4 +341,3 @@ a {
   margin-top: 20px;
 }
 </style>
-  

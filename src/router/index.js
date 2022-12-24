@@ -3,9 +3,10 @@ import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Blogs from "../views/Blogs.vue";
 import Tags from "../views/Tags/Tag.vue";
+import ViewBlogByTag from "../views/Tags/ViewBlogByTag.vue";
 
 import Login from "../views/Login.vue";
-import Register from "../views/Register.vue";
+// import Register from "../views/Register.vue";
 import ForgotPassword from "../views/ForgotPassword.vue";
 import Profile from "../views/Profile.vue";
 import Admin from "../views/Admin.vue";
@@ -38,6 +39,15 @@ const routes = [
     },
   },
   {
+    path: "/view-tag/:tagName",
+    name: "ViewBlogByTag",
+    component: ViewBlogByTag,
+    meta: {
+      title: "View Blog By Tag Post",
+      requiresAuth: false,
+    },
+  },
+  {
     path: "/blogs",
     name: "Blogs",
     component: Blogs,
@@ -55,15 +65,15 @@ const routes = [
       requiresAuth: false,
     },
   },
-  {
-    path: "/register",
-    name: "Register",
-    component: Register,
-    meta: {
-      title: "Register",
-      requiresAuth: false,
-    },
-  },
+  // {
+  //   path: "/register",
+  //   name: "Register",
+  //   component: Register,
+  //   meta: {
+  //     title: "Register",
+  //     requiresAuth: false,
+  //   },
+  // },
   {
     path: "/forgot-password",
     name: "ForgotPassword",
@@ -98,8 +108,8 @@ const routes = [
     component: CreatePost,
     meta: {
       title: "Create Post",
-      // requiresAuth: true,
-      // requiresAdmin: true,
+      requiresAuth: true,
+      requiresAdmin: true,
     },
   },
   {
@@ -143,12 +153,11 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  document.title = `${to.meta.title} | FireBlog`;
+  document.title = `${to.meta.title} | Trần Hữu Thắng`;
   next();
 });
 
 router.beforeEach(async (to, from, next) => {
-
   let user = firebase.auth().currentUser;
   let admin = null;
   if (user) {

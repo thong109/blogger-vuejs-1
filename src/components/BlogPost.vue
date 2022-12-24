@@ -6,11 +6,11 @@
         <h2 v-else>{{ post.blogTitle }}</h2>
         <p v-if="post.welcomeScreen">{{ post.blogPost }}</p>
         <p class="content-preview" v-else v-html="post.blogHTML"></p>
-        <router-link class="link link-light" v-if="post.welcomeScreen" to="#">
-          Login/Register<Arrow class="arrow arrow-light" />
+        <router-link class="link link-light" v-if="post.welcomeScreen" :to="{ name: 'Blogs' }">
+         Khám Phá<Arrow class="arrow arrow-light" />
         </router-link>
         <router-link class="link" v-else :to="{ name: 'ViewBlog', params: { blogid: this.post.blogID } }">
-          View The Post<Arrow class="arrow" />
+          Xem Chi Tiết<Arrow class="arrow" />
         </router-link>
       </div>
     </div>

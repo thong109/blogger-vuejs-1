@@ -2,10 +2,10 @@
   <div class="form-wrap">
     <form class="register">
       <p class="login-register">
-        Already have an account?
-        <router-link class="router-link" :to="{ name: 'Login' }">Login</router-link>
+       Bạn đã có tài khoản ?
+        <router-link class="router-link" :to="{ name: 'Login' }">Đăng Nhập</router-link>
       </p>
-      <h2>Create Your FireBlog Account</h2>
+      <h2>Tạo tài khoản</h2>
       <div class="inputs">
         <div class="input">
           <input type="text" placeholder="First Name" v-model="firstName" />
@@ -29,7 +29,7 @@
         </div>
         <div v-show="error" class="error">{{ this.errorMsg }}</div>
       </div>
-      <button @click.prevent="register">Sign Up</button>
+      <button @click.prevent="register">Đăng ký</button>
       <div class="angle"></div>
     </form>
     <div class="background"></div>

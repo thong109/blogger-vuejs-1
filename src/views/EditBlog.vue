@@ -11,14 +11,26 @@
         <div class="upload-file">
           <label for="blog-photo">Upload Cover Photo</label>
           <input type="file" ref="blogPhoto" id="blog-photo" @change="fileChange" accept=".png, .jpg, ,jpeg" />
-          <button @click="openPreview" class="preview" :class="{ 'button-inactive': !this.$store.state.blogPhotoFileURL }">
+          <button @click="openPreview" class="preview"
+            :class="{ 'button-inactive': !this.$store.state.blogPhotoFileURL }">
             Preview Photo
           </button>
           <span>File Chosen: {{ this.$store.state.blogPhotoName }}</span>
         </div>
       </div>
+      <div class="tag-input">
+        <el-tag :key="tag" v-for="tag in dynamicTags" closable :disable-transitions="false" @close="handleClose(tag)">
+          {{ tag }}
+        </el-tag>
+        <el-input class="input-new-tag" v-if="inputVisible" v-model="inputValue" ref="saveTagInput" size="mini"
+          @keyup.enter.native="handleInputConfirm" @blur="handleInputConfirm">
+        </el-input>
+        <el-button v-else class="button-new-tag" size="small" @click="showInput">+ New Tag</el-button>
+      </div>
+
       <div class="editor">
-        <vue-editor :editorOptions="editorSettings" v-model="blogHTML" useCustomImageHandler @image-added="imageHandler" />
+        <vue-editor :editorOptions="editorSettings" v-model="blogHTML" useCustomImageHandler
+          @image-added="imageHandler" />
       </div>
       <div class="blog-actions">
         <button @click="updateBlog">Save Changes</button>
@@ -42,6 +54,9 @@ export default {
   name: "CreatePost",
   data() {
     return {
+      dynamicTags: "",
+      inputVisible: false,
+      inputValue: '',
       file: null,
       error: null,
       errorMsg: null,
@@ -65,8 +80,29 @@ export default {
       return post.blogID === this.routeID;
     });
     this.$store.commit("setBlogState", this.currentBlog[0]);
+    this.dynamicTags= this.$store.state.blogTags ? this.$store.state.blogTags : [];
+
   },
   methods: {
+    handleClose(tag) {
+      this.dynamicTags.splice(this.dynamicTags.indexOf(tag), 1);
+    },
+
+    showInput() {
+      this.inputVisible = true;
+      this.$nextTick = () => {
+        this.$refs.saveTagInput.$refs.input.focus();
+      };
+    },
+
+    handleInputConfirm() {
+      let inputValue = this.inputValue.charAt(0).toUpperCase() + this.inputValue.slice(1);
+      if (inputValue) {
+        this.dynamicTags.push(inputValue);
+      }
+      this.inputVisible = false;
+      this.inputValue = '';
+    },
     fileChange() {
       this.file = this.$refs.blogPhoto.files[0];
       const fileName = this.file.name;
@@ -121,6 +157,7 @@ export default {
                 blogCoverPhoto: downloadURL,
                 blogCoverPhotoName: this.blogCoverPhotoName,
                 blogTitle: this.blogTitle,
+                tags:  this.dynamicTags,
               });
               await this.$store.dispatch("updatePost", this.routeID);
               this.loading = false;
@@ -133,6 +170,7 @@ export default {
         await dataBase.update({
           blogHTML: this.blogHTML,
           blogTitle: this.blogTitle,
+          tags:  this.dynamicTags,
         });
         await this.$store.dispatch("updatePost", this.routeID);
         this.loading = false;
@@ -186,6 +224,19 @@ export default {
   .router-button {
     text-decoration: none;
     color: #fff;
+  }
+
+  .tag-input {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+    align-items: center;
+  }
+
+  .button-new-tag {
+    color: white !important;
+    line-height: 0px !important;
+    margin-left: 5px;
   }
 
   label,

@@ -30,6 +30,7 @@ export default {
     });
     this.checkRoute();
     this.$store.dispatch("getPost");
+
   },
   mounted() {},
   methods: {
@@ -153,9 +154,9 @@ button,
 
 .blog-card-wrap {
   position: relative;
-  padding: 80px 16px;
+  padding: 10px 16px;
   @media (min-width: 500px) {
-    padding: 100px 16px;
+    padding: 10px 16px;
   }
 
   .blog-cards {
