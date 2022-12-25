@@ -210,10 +210,6 @@ export default {
   }
 }
 
-p {
-  color: #999;
-  font-weight: 700;
-}
 
 p .app {
   display: flex;
