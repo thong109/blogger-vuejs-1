@@ -1,5 +1,9 @@
 <template>
   <div class="app-wrapper">
+    <div class="loading-data" v-if="!this.$store.state.postLoaded">
+      <div class="preloader"></div>
+      <p>Đổi Mới Dạy Học Bằng UDCNTT</p>
+    </div>
     <div class="app" v-if="this.$store.state.postLoaded">
       <Navigation v-if="!navigation" />
       <router-view />
@@ -30,12 +34,15 @@ export default {
     });
     this.checkRoute();
     this.$store.dispatch("getPost");
-
   },
-  mounted() {},
+  mounted() { },
   methods: {
     checkRoute() {
-      if (this.$route.name === "Login" || this.$route.name === "Register" || this.$route.name === "ForgotPassword") {
+      if (
+        this.$route.name === "Login" ||
+        this.$route.name === "Register" ||
+        this.$route.name === "ForgotPassword"
+      ) {
         this.navigation = true;
         return;
       }
@@ -60,7 +67,155 @@ export default {
   font-family: "Quicksand", sans-serif;
 }
 
-.app {
+.loading-data {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  position: relative;
+}
+
+.preloader {
+  width: 50px;
+  height: 2px;
+  background-color: rgb(240, 240, 240);
+  position: relative;
+}
+
+.preloader::before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #999;
+  bottom: 20px;
+  left: -10px;
+  animation: bounce 2s linear infinite;
+}
+
+.preloader:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -2px;
+  height: 2px;
+  background-color: red;
+  animation: color 2s linear infinite;
+}
+
+@keyframes bounce {
+  0% {
+    bottom: 20px;
+    left: -15px;
+    width: 10px;
+    opacity: 0;
+    background: red;
+  }
+
+  20% {
+    bottom: 0px;
+    left: 0;
+    width: 10px;
+    opacity: 1;
+    background: orange;
+  }
+
+  22% {
+    bottom: 0px;
+    left: 0;
+    width: 12px;
+    height: 8px;
+  }
+
+  27% {
+    bottom: 0px;
+    left: 2px;
+    width: 10px;
+    height: 10px;
+  }
+
+  50% {
+    bottom: 20px;
+    left: 17px;
+    width: 10px;
+    height: 10px;
+    background: green;
+  }
+
+  55% {
+    bottom: 20px;
+    left: 22px;
+    width: 10px;
+    height: 10px;
+  }
+
+  75% {
+    bottom: 0px;
+    left: 35px;
+    width: 10px;
+    height: 10px;
+    background: blue;
+  }
+
+  80% {
+    bottom: 0px;
+    left: 35px;
+    width: 12px;
+    height: 8px;
+  }
+
+  82% {
+    bottom: 0px;
+    left: 35px;
+    width: 10px;
+    height: 10px;
+    opacity: 1;
+  }
+
+  100% {
+    bottom: 20px;
+    left: 50px;
+    width: 10px;
+    height: 8px;
+    opacity: 0;
+  }
+}
+
+@keyframes color {
+  0% {
+    width: 0;
+    background: red;
+  }
+
+  20% {
+    width: 10px;
+    background: orange;
+  }
+
+  50% {
+    width: 25px;
+    background: green;
+  }
+
+  75% {
+    width: 45px;
+    background: blue;
+  }
+
+  100% {
+    width: 52px;
+    background: purple;
+  }
+}
+
+p {
+  color: #999;
+  font-weight: 700;
+}
+
+p .app {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -85,10 +240,12 @@ export default {
 .arrow {
   margin-left: 8px;
   width: 12px;
+
   path {
     fill: #000;
   }
 }
+
 .arrow-light {
   path {
     fill: #fff;
@@ -124,6 +281,7 @@ button,
   font-size: 15px;
   font-weight: 500;
   background-color: transparent;
+
   @media (min-width: 700px) {
     margin-top: 0;
     margin-left: auto;
@@ -155,6 +313,7 @@ button,
 .blog-card-wrap {
   position: relative;
   padding: 10px 16px;
+
   @media (min-width: 500px) {
     padding: 10px 16px;
   }
@@ -167,9 +326,11 @@ button,
     @media (min-width: 500px) {
       grid-template-columns: repeat(2, 1fr);
     }
+
     @media (min-width: 900px) {
       grid-template-columns: repeat(3, 1fr);
     }
+
     @media (min-width: 1200px) {
       grid-template-columns: repeat(4, 1fr);
     }

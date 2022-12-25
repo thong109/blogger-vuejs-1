@@ -10,6 +10,7 @@
     </div>
     
     <img :src="post.blogCoverPhoto" alt="" />
+    <router-link class="link" :to="{ name: 'ViewBlog', params: { blogid: this.post.blogID } }">
     <div class="info">
       <h4>{{ post.blogTitle }}</h4>
       <h6>Đăng Ngày: {{ new Date(post.blogDate).toLocaleString("en-us", { dateStyle: "long" }) }}</h6>
@@ -17,6 +18,7 @@
        Xem Chi Tiết <Arrow class="arrow" />
       </router-link>
     </div>
+  </router-link>
   </div>
 </template>
 

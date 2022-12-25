@@ -144,7 +144,7 @@ export default {
 }
 
 .tag-item {
-    color: white;
+    color: #222f3e;
 }
 
 .widget-recent {
