@@ -8,7 +8,7 @@
         <h4>Ngày: {{ new Date(this.currentBlog[0].blogDate).toLocaleString("en-us", { dateStyle: "long" }) }},</h4>
         <h4>Số lượt xem: {{ this.currentBlog[0].blogViews }} </h4>
       </div>
-      <img v-lazy="this.currentBlog[0].blogCoverPhoto" alt="" />
+      <img :src="this.currentBlog[0].blogCoverPhoto" alt="" />
       <div class="post-content ql-editor" v-html="this.currentBlog[0].blogHTML"></div>
       <div class="tags-post">Chủ đề:
         <el-tag v-for="item in this.currentBlog[0].blogTags" :key="item">

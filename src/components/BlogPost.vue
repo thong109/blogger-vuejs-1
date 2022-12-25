@@ -17,8 +17,8 @@
       </div>
     </div>
     <div class="blog-photo" >
-      <img v-if="post.welcomeScreen" v-lazy="require(`../assets/blogPhotos/${post.photo}.jpg`)" alt="" />
-      <img v-else v-lazy="post.blogCoverPhoto" alt="" />
+      <img v-if="post.welcomeScreen" :src="require(`../assets/blogPhotos/${post.photo}.jpg`)" alt="" />
+      <img v-else :src="post.blogCoverPhoto" alt="" />
     </div>
   </div>
 </template>

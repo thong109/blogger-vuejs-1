@@ -7,7 +7,7 @@
 
 
                     <div style="display: flex;">
-                        <img v-lazy="post.blogCoverPhoto" alt="" width="25%" />
+                        <img :src="post.blogCoverPhoto" alt="" width="25%" />
                         <div class="box-info-post">
                             <h5 class="post-title">
                                 <router-link class="link" :to="{ name: 'ViewBlog', params: { blogid: post.blogID } }">

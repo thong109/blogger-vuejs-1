@@ -9,7 +9,7 @@
       </div>
     </div>
     
-    <img v-lazy="post.blogCoverPhoto" alt="" />
+    <img :src="post.blogCoverPhoto" alt="" />
     <div class="info">
       <h4>{{ post.blogTitle }}</h4>
       <h6>Đăng Ngày: {{ new Date(post.blogDate).toLocaleString("en-us", { dateStyle: "long" }) }}</h6>
