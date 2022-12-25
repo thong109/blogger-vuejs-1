@@ -26,6 +26,7 @@ export default new Vuex.Store({
     profileUsername: null,
     profileId: null,
     profileInitials: null,
+    loading: false
   },
   getters: {
     blogPostsFeed(state) {
@@ -112,6 +113,7 @@ export default new Vuex.Store({
     async getPost({ state }) {
       const dataBase = await db.collection("blogPosts").orderBy("date", "desc");
       const dbResults = await dataBase.get();
+this.state.loading = true;
       dbResults.forEach((doc) => {
         if (!state.blogPosts.some((post) => post.blogID === doc.id)) {
           const data = {
@@ -137,6 +139,8 @@ export default new Vuex.Store({
       }, {});
       state.tagsCount = tagCountResult 
       state.postLoaded = true;
+      this.state.loading = false;
+
     },
 
     async updatePost({ commit, dispatch }, payload) {

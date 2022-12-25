@@ -11,7 +11,7 @@
                             <div class="post-media">
                                 <div class="u-placeholder same-height rectangle">
                                     <a class="post-image-link" href="">
-                                        <img class="post-image u-placeholder .u-object-fit" :src="post.blogCoverPhoto"
+                                        <img class="post-image u-placeholder .u-object-fit" v-lazy="post.blogCoverPhoto"
                                             data-sizes="auto" :alt="post.blogCoverPhotoName" sizes="280px" />
                                     </a>
                                 </div>

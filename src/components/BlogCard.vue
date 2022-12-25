@@ -8,7 +8,8 @@
         <Delete class="delete" />
       </div>
     </div>
-    <img :src="post.blogCoverPhoto" alt="" />
+    
+    <img v-lazy="post.blogCoverPhoto" alt="" />
     <div class="info">
       <h4>{{ post.blogTitle }}</h4>
       <h6>Đăng Ngày: {{ new Date(post.blogDate).toLocaleString("en-us", { dateStyle: "long" }) }}</h6>

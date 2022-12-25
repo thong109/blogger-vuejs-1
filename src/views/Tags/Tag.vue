@@ -1,7 +1,7 @@
 <template>
   <div class="blog-cards container">
     <el-input placeholder="Tìm bài viết..." v-model="keyWord"></el-input>
-
+    <Loading v-show="loading" />
     <div class="row2 tag-layout" style="transform: none; height: auto !important">
       <div class="content-column col-xl-9 col-lg-8">
         <div class="post-column col-xl-4 col-md-6" :post="post" v-for="(post, index) in blogPosts" :key="index">
@@ -10,7 +10,7 @@
               <div class="post-media">
                 <div class="u-placeholder same-height rectangle">
                   <a class="post-image-link" href="">
-                    <img class="post-image u-placeholder .u-object-fit" :src="post.blogCoverPhoto" data-sizes="auto"
+                    <img class="post-image u-placeholder .u-object-fit" v-lazy="post.blogCoverPhoto" data-sizes="auto"
                       :alt="post.blogCoverPhotoName" sizes="280px" />
                   </a>
                 </div>
@@ -68,17 +68,21 @@
 import Arrow from "../../assets/Icons/arrow-right-light.svg";
 import RecentPost from "../RecentPost";
 import CardTag from "./cardTag";
+import Loading from "../../components/Loading"
+
 export default {
   name: "tags",
   data() {
     return {
       keyWord: "",
+      loading: false,
     };
   },
   components: {
     Arrow,
     RecentPost,
     CardTag,
+    Loading
   },
   computed: {
     blogPosts() {
@@ -106,8 +110,7 @@ export default {
 
 .tag-layout {
   display: flex;
-  justify-content: center;
-  align-content: center;
+  justify-content: center
 }
 
 .post-right {
