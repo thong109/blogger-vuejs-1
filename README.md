@@ -41,14 +41,14 @@ npm run lint
 ``
 8.11.0
 ``
-4. firebase-tools
+4. Firebase-tools
 ``
 10.0.0
 ``
-5. deploy firebase
-``
+5. Deploy firebase
+```
 firebase deploy
-``
+```
 
 
 ### Customize configuration
