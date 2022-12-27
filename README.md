@@ -28,6 +28,29 @@ npm run build
 npm run lint
 ```
 
+### Verion Enviroment
+1. Node Version 
+``
+  16.15.1
+``
+2. Yarn Version
+``
+  1.22.17
+``
+3. Npm Version
+``
+  8.11.0
+``
+4. firebase-tools
+``
+   10.0.0
+``
+5. deploy firebase
+``
+  firebase deploy
+``
+
+
 ### Customize configuration
 
 See [Configuration Reference](https://cli.vuejs.org/config/).
