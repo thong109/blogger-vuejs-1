@@ -31,23 +31,23 @@ npm run lint
 ### Verion Enviroment
 1. Node Version 
 ``
-  16.15.1
+16.15.1
 ``
 2. Yarn Version
 ``
-  1.22.17
+1.22.17
 ``
 3. Npm Version
 ``
-  8.11.0
+8.11.0
 ``
 4. firebase-tools
 ``
-   10.0.0
+10.0.0
 ``
 5. deploy firebase
 ``
-  firebase deploy
+firebase deploy
 ``
 
 
