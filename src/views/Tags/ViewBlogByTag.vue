@@ -69,7 +69,7 @@
         </div>
     </div>
 </template>
-    
+
 <script>
 import Arrow from "../../assets/Icons/arrow-right-light.svg";
 import RecentPost from "../RecentPost";
@@ -119,7 +119,7 @@ export default {
     },
 };
 </script>
-    
+
 <style lang="scss" scoped>
 .el-input {
     width: 25%;
@@ -371,5 +371,83 @@ a {
 .theiaStickySidebar {
     margin-top: 20px;
 }
+@media (min-width: 320px) and (max-width: 575.98px) {
+  .tag-layout{
+    flex-direction: column-reverse;
+    padding: 10px;
+  }
+  .post-header{
+    max-width: 100%;
+  }
+  .sidebar-column{
+    width: 100%;
+  }
+  .widget-recent .post-title{
+    white-space: break-spaces;
+  }
+  .post-wrapper{
+    display: flex;
+    flex-direction: column;
+  }
+  .post-right{
+    padding-left: 0;
+    padding: 10px;
+  }
+  .post-header{
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  header nav{
+    flex-direction: column;
+  }
+  .tag-layout{
+    flex-direction: column-reverse;
+    padding: 10px;
+  }
+  .post-header{
+    max-width: 100%;
+  }
+  .sidebar-column{
+    width: 100%;
+  }
+  .widget-recent .post-title{
+    white-space: break-spaces;
+  }
+ }
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .tag-layout{
+    flex-direction: column-reverse;
+    padding: 10px;
+  }
+  .post-header{
+    max-width: 100%;
+  }
+  .sidebar-column{
+    width: 100%;
+  }
+  header nav{
+    flex-direction: column !important;
+  }
+  header nav .branding .header{
+    font-size: 15px;
+  }
+ }
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .tag-layout{
+    flex-direction: column-reverse;
+    padding: 15px;
+  }
+  .post-header{
+    max-width: 100%;
+  }
+  .sidebar-column{
+    width: 100%;
+  }
+}
+
+@media (min-width: 1200px) { }
 </style>
-    
