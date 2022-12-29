@@ -53,7 +53,6 @@ export default {
 
 <style lang="scss" scoped>
 .el-input {
-  width: 25%;
   margin: 0 auto;
   display: flex;
   padding-bottom: 10px;

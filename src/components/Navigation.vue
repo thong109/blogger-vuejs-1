@@ -8,11 +8,12 @@
         <ul v-show="!mobile">
           <router-link class="link" :to="{ name: 'Home' }">Trang Chủ</router-link>
           <router-link class="link" :to="{ name: 'Blogs' }">Bài Viết</router-link>
-          <router-link v-if="admin" class="link" :to="{ name: 'CreatePost' }">Tạo Bài Viết</router-link> 
-          <router-link  class="link" :to="{ name: 'Tag' }">Thể loại</router-link> 
+          <router-link v-if="admin" class="link" :to="{ name: 'CreatePost' }">Tạo Bài Viết</router-link>
+          <router-link class="link" :to="{ name: 'Tag' }">Thể loại</router-link>
           <router-link v-if="!user" class="link" :to="{ name: 'Login' }">Đăng Nhập</router-link>
         </ul>
-        <div v-if="user" :class="{ 'mobile-user-menu': mobile }" @click="toggleProfileMenu" class="profile" ref="profile">
+        <div v-if="user" :class="{ 'mobile-user-menu': mobile }" @click="toggleProfileMenu" class="profile"
+          ref="profile">
           <span>{{ this.$store.state.profileInitials }}</span>
           <div v-show="profileMenu" class="profile-menu">
             <div class="info">
@@ -50,7 +51,7 @@
       <ul class="mobile-nav" v-show="mobileNav">
         <router-link class="link" :to="{ name: 'Home' }">Trang Chủ</router-link>
         <router-link class="link" :to="{ name: 'Blogs' }">Bài Viết</router-link>
-        <router-link  class="link" :to="{ name: 'Tag' }">Thể loại</router-link> 
+        <router-link class="link" :to="{ name: 'Tag' }">Thể loại</router-link>
         <router-link v-if="admin" class="link" :to="{ name: 'CreatePost' }">Tạo Bài Viết</router-link>
         <router-link v-if="!user" class="link" :to="{ name: 'Login' }">Đăng Nhập</router-link>
       </ul>
@@ -235,6 +236,7 @@ header {
 
           .options {
             padding: 15px;
+
             .option {
               text-decoration: none;
               color: #fff;
@@ -246,6 +248,7 @@ header {
                 width: 18px;
                 height: auto;
               }
+
               p {
                 font-size: 14px;
                 margin-left: 12px;
@@ -285,6 +288,7 @@ header {
     background-color: #303030;
     top: 0;
     left: 0;
+    z-index: 9999;
 
     .link {
       padding: 15px 0;

@@ -110,7 +110,13 @@ export default {
 
     imageHandler(file, Editor, cursorLocation, resetUploader) {
       const storageRef = firebase.storage().ref();
-      const docRef = storageRef.child(`documents/blogPostPhotos/${file.name}`);
+      const today = new Date();
+      const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+      const time = today.getHours() + "-" + today.getMinutes() + "-" + today.getSeconds();
+      const dateTime = date + '-' + time;
+      let fileNameBodyContent = Math.random() * 100 + dateTime + file.name;
+
+      const docRef = storageRef.child(`documents/blogPostPhotos/${fileNameBodyContent}`);
       docRef.put(file).on(
         "state_changed",
         (snapshot) => {

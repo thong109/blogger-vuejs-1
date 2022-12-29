@@ -23,20 +23,20 @@
                                                 dateStyle: "long"
                                             })
                                     }}</a>
+                                    <i class="el-icon-view post-view">{{ post.blogViews }}</i>
+
                                     <router-link class="link"
                                         :to="{ name: 'ViewBlog', params: { blogid: post.blogID } }">
                                         <h2 class="post-title">
-                                            <a class="post-title-link" href="#">{{
-                                                    post.blogTitle
-                                            }}</a>
+                                            <a class="post-title-link" href="#">{{ post.blogTitle }}</a>
                                         </h2>
                                     </router-link>
 
                                 </header>
                                 <div class="post-excerpt">
-                                    {{ post.blogTitle
-                                    }}
+                                    {{ post.blogTitle }}
                                 </div>
+
                                 <div class="tag-list">
                                     <span class="tag-group__title"> Tags: </span>
 
@@ -44,7 +44,7 @@
 
                                         <router-link class="tag-group__title tag-item"
                                             :to="{ name: 'ViewBlogByTag', params: { tagName: item } }"> {{ item
-                                            }}</router-link>
+}}</router-link>
 
                                     </el-tag>
                                 </div>
@@ -122,7 +122,6 @@ export default {
 
 <style lang="scss" scoped>
 .el-input {
-    width: 25%;
     margin: 0 auto;
     display: flex;
     padding-bottom: 10px;
@@ -197,7 +196,8 @@ export default {
     margin-top: 20px;
 }
 
-.post-tag {
+.post-tag,
+.post-view {
     display: inline-block;
     margin-bottom: 8px;
     padding: 4px 8px;
@@ -207,6 +207,15 @@ export default {
     font-weight: 700;
     background-color: #2ec4b6;
     border-radius: 15px;
+}
+
+.post-view {
+    background-color: #00b894 !important;
+    margin-left: 5px !important;
+}
+
+.el-icon-view:before {
+    padding-right: 2px;
 }
 
 .post-title {
@@ -371,83 +380,100 @@ a {
 .theiaStickySidebar {
     margin-top: 20px;
 }
+
 @media (min-width: 320px) and (max-width: 575.98px) {
-  .tag-layout{
-    flex-direction: column-reverse;
-    padding: 10px;
-  }
-  .post-header{
-    max-width: 100%;
-  }
-  .sidebar-column{
-    width: 100%;
-  }
-  .widget-recent .post-title{
-    white-space: break-spaces;
-  }
-  .post-wrapper{
-    display: flex;
-    flex-direction: column;
-  }
-  .post-right{
-    padding-left: 0;
-    padding: 10px;
-  }
-  .post-header{
-    flex-direction: column;
-  }
+    .tag-layout {
+        flex-direction: column-reverse;
+        padding: 10px;
+    }
+
+    .post-header {
+        max-width: 100%;
+    }
+
+    .sidebar-column {
+        width: 100%;
+    }
+
+    .widget-recent .post-title {
+        white-space: break-spaces;
+    }
+
+    .post-wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .post-right {
+        padding-left: 0;
+        padding: 10px;
+    }
+
+    .post-header {
+        flex-direction: column;
+    }
 }
 
 @media (min-width: 576px) and (max-width: 767.98px) {
-  header nav{
-    flex-direction: column;
-  }
-  .tag-layout{
-    flex-direction: column-reverse;
-    padding: 10px;
-  }
-  .post-header{
-    max-width: 100%;
-  }
-  .sidebar-column{
-    width: 100%;
-  }
-  .widget-recent .post-title{
-    white-space: break-spaces;
-  }
- }
+    header nav {
+        flex-direction: column;
+    }
 
-@media (min-width: 768px) and (max-width: 991.98px) {
-  .tag-layout{
-    flex-direction: column-reverse;
-    padding: 10px;
-  }
-  .post-header{
-    max-width: 100%;
-  }
-  .sidebar-column{
-    width: 100%;
-  }
-  header nav{
-    flex-direction: column !important;
-  }
-  header nav .branding .header{
-    font-size: 15px;
-  }
- }
+    .tag-layout {
+        flex-direction: column-reverse;
+        padding: 10px;
+    }
 
-@media (min-width: 992px) and (max-width: 1199.98px) {
-  .tag-layout{
-    flex-direction: column-reverse;
-    padding: 15px;
-  }
-  .post-header{
-    max-width: 100%;
-  }
-  .sidebar-column{
-    width: 100%;
-  }
+    .post-header {
+        max-width: 100%;
+    }
+
+    .sidebar-column {
+        width: 100%;
+    }
+
+    .widget-recent .post-title {
+        white-space: break-spaces;
+    }
 }
 
-@media (min-width: 1200px) { }
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .tag-layout {
+        flex-direction: column-reverse;
+        padding: 10px;
+    }
+
+    .post-header {
+        max-width: 100%;
+    }
+
+    .sidebar-column {
+        width: 100%;
+    }
+
+    header nav {
+        flex-direction: column !important;
+    }
+
+    header nav .branding .header {
+        font-size: 15px;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .tag-layout {
+        flex-direction: column-reverse;
+        padding: 15px;
+    }
+
+    .post-header {
+        max-width: 100%;
+    }
+
+    .sidebar-column {
+        width: 100%;
+    }
+}
+
+@media (min-width: 1200px) {}
 </style>
