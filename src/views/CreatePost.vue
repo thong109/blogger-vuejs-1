@@ -94,7 +94,12 @@ export default {
     },
     fileChange() {
       this.file = this.$refs.blogPhoto.files[0];
-      const fileName = this.file.name;
+      const today = new Date();
+      const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+      const time = today.getHours() + "-" + today.getMinutes() + "-" + today.getSeconds();
+      const dateTime = date + '-' + time;
+
+      let fileName = Math.random() * 100 + dateTime + this.file.name;
       this.$store.commit("fileNameChange", fileName);
       this.$store.commit("createFileURL", URL.createObjectURL(this.file));
     },
@@ -105,7 +110,13 @@ export default {
 
     imageHandler(file, Editor, cursorLocation, resetUploader) {
       const storageRef = firebase.storage().ref();
-      const docRef = storageRef.child(`documents/blogPostPhotos/${file.name}`);
+      const today = new Date();
+      const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+      const time = today.getHours() + "-" + today.getMinutes() + "-" + today.getSeconds();
+      const dateTime = date + '-' + time;
+      let fileNameBodyContent = Math.random() * 100 + dateTime + file.name;
+
+      const docRef = storageRef.child(`documents/blogPostPhotos/${fileNameBodyContent}`);
       docRef.put(file).on(
         "state_changed",
         (snapshot) => {
@@ -149,7 +160,7 @@ export default {
                 blogCoverPhotoName: this.blogCoverPhotoName,
                 blogTitle: this.blogTitle,
                 profileId: this.profileId,
-                tags:  this.dynamicTags,
+                tags: this.dynamicTags,
                 blogViews: 0,
                 date: timestamp,
               });

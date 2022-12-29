@@ -1,7 +1,6 @@
 <template>
   <div class="blog-cards container">
     <el-input placeholder="Tìm bài viết..." v-model="keyWord"></el-input>
-    <Loading v-show="loading" />
     <div class="row2 tag-layout" style="transform: none; height: auto !important">
       <div class="content-column col-xl-9 col-lg-8">
         <div class="post-column col-xl-4 col-md-6" :post="post" v-for="(post, index) in blogPosts" :key="index">
@@ -21,12 +20,15 @@
                       new Date(post.blogDate).toLocaleString("en-us", {
                         dateStyle: "long",
                       })
-                  }}</a>
+                  }}
+
+                  </a>
+
+                  <i class="el-icon-view post-view">{{ post.blogViews }}</i>
+
                   <router-link class="link" :to="{ name: 'ViewBlog', params: { blogid: post.blogID } }">
                     <h2 class="post-title">
-                      <a class="post-title-link" href="#">{{
-                          post.blogTitle
-                      }}</a>
+                      <a class="post-title-link" href="#">{{ post.blogTitle }}</a>
                     </h2>
                   </router-link>
 
@@ -68,21 +70,18 @@
 import Arrow from "../../assets/Icons/arrow-right-light.svg";
 import RecentPost from "../RecentPost";
 import CardTag from "./cardTag";
-import Loading from "../../components/Loading"
 
 export default {
   name: "tags",
   data() {
     return {
       keyWord: "",
-      loading: false,
     };
   },
   components: {
     Arrow,
     RecentPost,
     CardTag,
-    Loading
   },
   computed: {
     blogPosts() {
@@ -101,7 +100,6 @@ export default {
 
 <style lang="scss" scoped>
 .el-input {
-  width: 25%;
   margin: 0 auto;
   display: flex;
   padding-bottom: 10px;
@@ -165,7 +163,8 @@ export default {
   margin-top: 20px;
 }
 
-.post-tag {
+.post-tag,
+.post-view {
   display: inline-block;
   margin-bottom: 8px;
   padding: 4px 8px;
@@ -175,6 +174,15 @@ export default {
   font-weight: 700;
   background-color: #2ec4b6;
   border-radius: 15px;
+}
+
+.post-view {
+  background-color: #00b894 !important;
+  margin-left: 5px !important;
+}
+
+.el-icon-view:before {
+  padding-right: 2px;
 }
 
 .post-title {
@@ -364,82 +372,98 @@ header .mobile-nav{
 }
 
 @media (min-width: 320px) and (max-width: 575.98px) {
-  .tag-layout{
+  .tag-layout {
     flex-direction: column-reverse;
     padding: 10px;
   }
-  .post-header{
+
+  .post-header {
     max-width: 100%;
   }
-  .sidebar-column{
+
+  .sidebar-column {
     width: 100%;
   }
-  .widget-recent .post-title{
+
+  .widget-recent .post-title {
     white-space: break-spaces;
   }
-  .post-wrapper{
+
+  .post-wrapper {
     display: flex;
     flex-direction: column;
   }
-  .post-right{
+
+  .post-right {
     padding-left: 0;
     padding: 10px;
   }
-  .post-header{
+
+  .post-header {
     flex-direction: column;
   }
 }
 
 @media (min-width: 576px) and (max-width: 767.98px) {
-  header nav{
+  header nav {
     flex-direction: column;
   }
-  .tag-layout{
+
+  .tag-layout {
     flex-direction: column-reverse;
     padding: 10px;
   }
-  .post-header{
+
+  .post-header {
     max-width: 100%;
   }
-  .sidebar-column{
+
+  .sidebar-column {
     width: 100%;
   }
-  .widget-recent .post-title{
+
+  .widget-recent .post-title {
     white-space: break-spaces;
   }
- }
+}
 
 @media (min-width: 768px) and (max-width: 991.98px) {
-  .tag-layout{
+  .tag-layout {
     flex-direction: column-reverse;
     padding: 10px;
   }
-  .post-header{
+
+  .post-header {
     max-width: 100%;
   }
-  .sidebar-column{
+
+  .sidebar-column {
     width: 100%;
   }
-  header nav{
+
+  header nav {
     flex-direction: column !important;
   }
-  header nav .branding .header{
+
+  header nav .branding .header {
     font-size: 15px;
   }
- }
+}
 
 @media (min-width: 992px) and (max-width: 1199.98px) {
-  .tag-layout{
+  .tag-layout {
     flex-direction: column-reverse;
     padding: 15px;
   }
-  .post-header{
+
+  .post-header {
     max-width: 100%;
   }
-  .sidebar-column{
+
+  .sidebar-column {
     width: 100%;
   }
 }
 
-@media (min-width: 1200px) { }
+@media (min-width: 1200px) {}
 </style>
