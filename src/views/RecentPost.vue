@@ -6,7 +6,7 @@
                 <header class="post-header">
 
 
-                    <div style="display: flex;">
+                    <div class="menu-left">
                         <img :src="post.blogCoverPhoto" alt="" width="25%" />
                         <div class="box-info-post">
                             <h5 class="post-title">
@@ -28,7 +28,7 @@
         </div>
     </div>
 </template>
-  
+
 <script>
 
 export default {
@@ -48,7 +48,7 @@ export default {
 
 };
 </script>
-  
+
 <style lang="scss" scoped>
 a,
 h1,
@@ -62,7 +62,9 @@ h6 {
 .box-info-post{
     margin-left: 20px;
 }
-
+.menu-left{
+  display: flex;
+}
 
 
 
@@ -128,5 +130,42 @@ a {
 .widget+.widget {
     margin-top: 30px;
 }
+
+@media (min-width: 320px) and (max-width: 575.98px) {
+  .tag-layout{
+    flex-direction: column-reverse;
+    padding: 10px;
+  }
+  .post-header{
+    max-width: 100%;
+  }
+  .sidebar-column{
+    width: 100%;
+  }
+  .widget-recent .post-title{
+    white-space: break-spaces;
+  }
+  .post-wrapper{
+    display: flex;
+    flex-direction: column;
+  }
+  .post-right{
+    padding-left: 0;
+    padding: 10px;
+  }
+  .post-header{
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+ }
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+ }
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+ }
+
+@media (min-width: 1200px) { }
 </style>
-  

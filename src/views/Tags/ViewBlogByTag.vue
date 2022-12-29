@@ -152,7 +152,6 @@ export default {
 }
 
 .post-header {
-    min-width: 350px !important;
     overflow-wrap: break-word;
     word-wrap: break-word;
     word-break: break-word;
@@ -371,6 +370,21 @@ a {
 .theiaStickySidebar {
     margin-top: 20px;
 }
+
+.tag-list{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.el-tag{
+  height: auto;
+  line-height: inherit;
+  padding: 5px;
+  border-radius: 6px;
+}
+
 @media (min-width: 320px) and (max-width: 575.98px) {
   .tag-layout{
     flex-direction: column-reverse;
