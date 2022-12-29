@@ -136,7 +136,7 @@ export default {
 }
 
 .post-column {
-  margin-bottom: 20px;
+  padding: 5px 0;
 }
 
 .widget-recent {
@@ -151,10 +151,6 @@ export default {
 
 .el-tag {
   border-radius: 5%;
-}
-
-.post-header {
-  margin-bottom: 10px;
 }
 
 .sidebar-column {
@@ -262,6 +258,7 @@ h6 {
 }
 
 .u-shadow {
+  padding: 10px;
   overflow: hidden;
   border-radius: 3px;
   box-shadow: 0 0 1px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.02);
@@ -343,4 +340,84 @@ a {
 .theiaStickySidebar {
   margin-top: 20px;
 }
+
+@media (min-width: 320px) and (max-width: 575.98px) {
+  .tag-layout{
+    flex-direction: column-reverse;
+    padding: 10px;
+  }
+  .post-header{
+    max-width: 100%;
+  }
+  .sidebar-column{
+    width: 100%;
+  }
+  .widget-recent .post-title{
+    white-space: break-spaces;
+  }
+  .post-wrapper{
+    display: flex;
+    flex-direction: column;
+  }
+  .post-right{
+    padding-left: 0;
+    padding: 10px;
+  }
+  .post-header{
+    flex-direction: column;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  header nav{
+    flex-direction: column;
+  }
+  .tag-layout{
+    flex-direction: column-reverse;
+    padding: 10px;
+  }
+  .post-header{
+    max-width: 100%;
+  }
+  .sidebar-column{
+    width: 100%;
+  }
+  .widget-recent .post-title{
+    white-space: break-spaces;
+  }
+ }
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .tag-layout{
+    flex-direction: column-reverse;
+    padding: 10px;
+  }
+  .post-header{
+    max-width: 100%;
+  }
+  .sidebar-column{
+    width: 100%;
+  }
+  header nav{
+    flex-direction: column !important;
+  }
+  header nav .branding .header{
+    font-size: 15px;
+  }
+ }
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .tag-layout{
+    flex-direction: column-reverse;
+    padding: 15px;
+  }
+  .post-header{
+    max-width: 100%;
+  }
+  .sidebar-column{
+    width: 100%;
+  }
+}
+
+@media (min-width: 1200px) { }
 </style>
