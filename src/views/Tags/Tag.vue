@@ -1,6 +1,6 @@
 <template>
   <div class="blog-cards container">
-    <el-input placeholder="Tìm bài viết..." v-model="keyWord"></el-input>
+    <el-input placeholder="Enter để tìm bài viết..." v-model="keyWord"></el-input>
     <div
       class="row2 tag-layout"
       style="transform: none; height: auto !important"

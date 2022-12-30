@@ -1,6 +1,6 @@
 <template>
   <div class="blog-card-wrap">
-    <el-input placeholder="Tìm bài viết..." v-model="keyWord"></el-input>
+    <el-input placeholder="Enter để tìm bài viết..." v-model="keyWord"></el-input>
 
     <div class="blog-cards container">
       <div v-if="profileAdmin" class="toggle-edit">
