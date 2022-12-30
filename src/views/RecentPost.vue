@@ -60,6 +60,7 @@ h6 {
     color: black;
 }
 .box-info-post{
+    overflow: hidden;
     margin-left: 20px;
 }
 .menu-left{
@@ -102,7 +103,7 @@ a {
     overflow: hidden;
     font-size: 16px;
     text-overflow: ellipsis;
-    white-space: nowrap;
+    // white-space: nowrap;
 }
 
 .post-header {

@@ -5,14 +5,12 @@ import store from "./store";
 import Vue2Editor from "vue2-editor";
 import firebase from "firebase/app";
 import Element from 'element-ui'
-import VueLazyload from 'vue-lazyload'
 
 import "firebase/auth";
 import 'element-ui/lib/theme-chalk/index.css'
 
 Vue.use(Vue2Editor);
 Vue.use(Element)
-Vue.use(VueLazyload)
 Vue.config.productionTip = false;
 
 let app;

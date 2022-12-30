@@ -1,37 +1,54 @@
 <template>
   <div class="blog-cards container">
     <el-input placeholder="Tìm bài viết..." v-model="keyWord"></el-input>
-    <div class="row2 tag-layout" style="transform: none; height: auto !important">
+    <div
+      class="row2 tag-layout"
+      style="transform: none; height: auto !important"
+    >
       <div class="content-column col-xl-9 col-lg-8">
-        <div class="post-column col-xl-4 col-md-6" :post="post" v-for="(post, index) in blogPosts" :key="index">
+        <div
+          class="post-column col-xl-4 col-md-6"
+          :post="post"
+          v-for="(post, index) in blogPosts"
+          :key="index"
+        >
           <div class="post tag-logseq u-shadow">
             <div class="post-wrapper">
               <div class="post-media">
                 <div class="u-placeholder same-height rectangle">
                   <a class="post-image-link" href="">
-                    <img class="post-image u-placeholder .u-object-fit" :src="post.blogCoverPhoto" data-sizes="auto"
-                      :alt="post.blogCoverPhotoName" sizes="280px" />
+                    <img
+                      class="post-image u-placeholder .u-object-fit"
+                      :src="post.blogCoverPhoto"
+                      data-sizes="auto"
+                      :alt="post.blogCoverPhotoName"
+                      sizes="280px"
+                    />
                   </a>
                 </div>
               </div>
               <div class="post-right">
                 <header class="post-header">
-                  <a class="post-tag" href="/tag/logseq/">{{
+                  <a class="post-tag" href="/tag/logseq/"
+                    >{{
                       new Date(post.blogDate).toLocaleString("en-us", {
                         dateStyle: "long",
                       })
-                  }}
-
+                    }}
                   </a>
 
                   <i class="el-icon-view post-view">{{ post.blogViews }}</i>
 
-                  <router-link class="link" :to="{ name: 'ViewBlog', params: { blogid: post.blogID } }">
+                  <router-link
+                    class="link"
+                    :to="{ name: 'ViewBlog', params: { blogid: post.blogID } }"
+                  >
                     <h2 class="post-title">
-                      <a class="post-title-link" href="#">{{ post.blogTitle }}</a>
+                      <a class="post-title-link" href="#">{{
+                        post.blogTitle
+                      }}</a>
                     </h2>
                   </router-link>
-
                 </header>
                 <div class="post-excerpt">
                   {{ post.blogTitle }}
@@ -39,13 +56,24 @@
                 <div class="tag-list">
                   <span class="tag-group__title"> Tags: </span>
 
-                  <el-tag v-for="item in post.blogTags" :key="item" type="success" effect="dark">
-                    <router-link class="tag-group__title tag-item"
-                      :to="{ name: 'ViewBlogByTag', params: { tagName: item } }">
-                      {{ item }}</router-link>
+                  <el-tag
+                    v-for="item in post.blogTags"
+                    :key="item"
+                    type="success"
+                    effect="dark"
+                  >
+                    <router-link
+                      class="tag-group__title tag-item"
+                      :to="{ name: 'ViewBlogByTag', params: { tagName: item } }"
+                    >
+                      {{ item }}</router-link
+                    >
                   </el-tag>
                 </div>
-                <router-link class="link" :to="{ name: 'ViewBlog', params: { blogid: post.blogID } }">
+                <router-link
+                  class="link"
+                  :to="{ name: 'ViewBlog', params: { blogid: post.blogID } }"
+                >
                   Xem Chi Tiết
                   <Arrow class="arrow" />
                 </router-link>
@@ -54,7 +82,10 @@
           </div>
         </div>
       </div>
-      <div class="sidebar-column col-xl-3 col-lg-4 hidden-xs hidden-sm hidden-md" s>
+      <div
+        class="sidebar-column col-xl-3 col-lg-4 hidden-xs hidden-sm hidden-md"
+        s
+      >
         <div class="theiaStickySidebar">
           <aside class="widget-area" style="height: auto !important">
             <CardTag />
@@ -83,15 +114,36 @@ export default {
     RecentPost,
     CardTag,
   },
+  methods: {
+    toNonAccentVietnamese: function (str) {
+      str = str.replace(/A|Á|À|Ã|Ạ|Â|Ấ|Ầ|Ẫ|Ậ|Ă|Ắ|Ằ|Ẵ|Ặ/g, "A");
+      str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");
+      str = str.replace(/E|É|È|Ẽ|Ẹ|Ê|Ế|Ề|Ễ|Ệ/, "E");
+      str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g, "e");
+      str = str.replace(/I|Í|Ì|Ĩ|Ị/g, "I");
+      str = str.replace(/ì|í|ị|ỉ|ĩ/g, "i");
+      str = str.replace(/O|Ó|Ò|Õ|Ọ|Ô|Ố|Ồ|Ỗ|Ộ|Ơ|Ớ|Ờ|Ỡ|Ợ/g, "O");
+      str = str.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g, "o");
+      str = str.replace(/U|Ú|Ù|Ũ|Ụ|Ư|Ứ|Ừ|Ữ|Ự/g, "U");
+      str = str.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g, "u");
+      str = str.replace(/Y|Ý|Ỳ|Ỹ|Ỵ/g, "Y");
+      str = str.replace(/ỳ|ý|ỵ|ỷ|ỹ/g, "y");
+      str = str.replace(/Đ/g, "D");
+      str = str.replace(/đ/g, "d");
+      str = str.replace(/\u0300|\u0301|\u0303|\u0309|\u0323/g, "");
+      str = str.replace(/\u02C6|\u0306|\u031B/g, "");
+      return str;
+    },
+  },
   computed: {
     blogPosts() {
       if (!this.keyWord) {
         return this.$store.state.blogPosts;
       }
       return this.$store.state.blogPosts.filter((post) => {
-        return post.blogTitle
-          .toLowerCase()
-          .includes(this.keyWord.toLowerCase());
+        return this.toNonAccentVietnamese(
+          post.blogTitle.toLowerCase()
+        ).includes(this.toNonAccentVietnamese(this.keyWord.toLowerCase()));
       });
     },
   },
@@ -108,7 +160,7 @@ export default {
 
 .tag-layout {
   display: flex;
-  justify-content: center
+  justify-content: center;
 }
 
 .post-right {
@@ -340,7 +392,7 @@ a {
   color: #aaa;
 }
 
-.widget+.widget {
+.widget + .widget {
   margin-top: 30px;
 }
 
@@ -348,26 +400,26 @@ a {
   margin-top: 20px;
 }
 
-.tag-list{
+.tag-list {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
   align-items: center;
 }
 
-.el-tag{
+.el-tag {
   height: auto;
   line-height: inherit;
   padding: 5px;
   border-radius: 6px;
 }
 
-.link{
+.link {
   display: flex;
   align-items: center;
 }
 
-header .mobile-nav{
+header .mobile-nav {
   z-index: 10000 !important;
 }
 
@@ -465,5 +517,6 @@ header .mobile-nav{
   }
 }
 
-@media (min-width: 1200px) {}
+@media (min-width: 1200px) {
+}
 </style>

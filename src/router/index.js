@@ -25,7 +25,7 @@ const routes = [
     name: "Home",
     component: Home,
     meta: {
-      title: "Home",
+      title: "Trang chủ",
       requiresAuth: false,
     },
   },
@@ -34,7 +34,7 @@ const routes = [
     name: "Tag",
     component: Tags,
     meta: {
-      title: "Tag",
+      title: "Thể loại",
       requiresAuth: false,
     },
   },
@@ -43,7 +43,7 @@ const routes = [
     name: "ViewBlogByTag",
     component: ViewBlogByTag,
     meta: {
-      title: "View Blog By Tag Post",
+      title: "Xem bài viết theo chủ đề",
       requiresAuth: false,
     },
   },
@@ -52,7 +52,7 @@ const routes = [
     name: "Blogs",
     component: Blogs,
     meta: {
-      title: "Blogs",
+      title: "Bài viết",
       requiresAuth: false,
     },
   },
@@ -61,7 +61,7 @@ const routes = [
     name: "Login",
     component: Login,
     meta: {
-      title: "Login",
+      title: "Đăng nhập",
       requiresAuth: false,
     },
   },

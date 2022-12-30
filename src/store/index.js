@@ -26,7 +26,7 @@ export default new Vuex.Store({
     profileUsername: null,
     profileId: null,
     profileInitials: null,
-    loading: false
+    loading: false,
   },
   getters: {
     blogPostsFeed(state) {
@@ -60,7 +60,7 @@ export default new Vuex.Store({
       state.blogHTML = payload.blogHTML;
       state.blogPhotoFileURL = payload.blogCoverPhoto;
       state.blogPhotoName = payload.blogCoverPhotoName;
-      state.blogTags=  payload.blogTags
+      state.blogTags = payload.blogTags;
     },
     filterBlogPost(state, payload) {
       state.blogPosts = state.blogPosts.filter(
@@ -111,7 +111,7 @@ export default new Vuex.Store({
     async getPost({ state }) {
       const dataBase = await db.collection("blogPosts").orderBy("date", "desc");
       const dbResults = await dataBase.get();
-this.state.loading = true;
+      this.state.loading = true;
       dbResults.forEach((doc) => {
         if (!state.blogPosts.some((post) => post.blogID === doc.id)) {
           const data = {
@@ -122,23 +122,22 @@ this.state.loading = true;
             blogDate: doc.data().date,
             blogCoverPhotoName: doc.data().blogCoverPhotoName,
             blogTags: doc.data().tags,
-            blogViews: doc.data().blogViews
+            blogViews: doc.data().blogViews,
           };
-        
+
           state.blogPosts.push(data);
         }
       });
-      let blogTags = state.blogPosts.map(({ blogTags }) => blogTags)
+      let blogTags = state.blogPosts.map(({ blogTags }) => blogTags);
       const tagList = blogTags.flat();
       this.state.tags = tagList;
       var tagCountResult = tagList.reduce(function(obj, b) {
         obj[b] = ++obj[b] || 1;
         return obj;
       }, {});
-      state.tagsCount = tagCountResult 
+      state.tagsCount = tagCountResult;
       state.postLoaded = true;
       this.state.loading = false;
-
     },
 
     async updatePost({ commit, dispatch }, payload) {
