@@ -218,6 +218,9 @@ export default {
   margin-top: 10px;
   margin-bottom: 10px;
 }
+.el-tag{
+  margin-left: 5px;
+}
 
 .button-new-tag {
   margin-left: 10px !important;
