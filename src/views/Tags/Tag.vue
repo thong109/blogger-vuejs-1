@@ -1,6 +1,9 @@
 <template>
   <div class="blog-cards container">
-    <el-input placeholder="Enter để tìm bài viết..." v-model="keyWord"></el-input>
+    <el-input
+      placeholder="Enter để tìm bài viết..."
+      v-model="keyWord"
+    ></el-input>
     <div
       class="row2 tag-layout"
       style="transform: none; height: auto !important"
@@ -84,7 +87,6 @@
       </div>
       <div
         class="sidebar-column col-xl-3 col-lg-4 hidden-xs hidden-sm hidden-md"
-        s
       >
         <div class="theiaStickySidebar">
           <aside class="widget-area" style="height: auto !important">
@@ -94,6 +96,11 @@
         </div>
       </div>
     </div>
+    <Pagination
+      :page-size="this.pageSize"
+      :blogPosts="this.$store.state.blogPosts.length"
+      @clicked-page-show-pagination="showDataPaginantion"
+    />
   </div>
 </template>
 
@@ -101,21 +108,27 @@
 import Arrow from "../../assets/Icons/arrow-right-light.svg";
 import RecentPost from "../RecentPost";
 import CardTag from "./cardTag";
-
+import Pagination from "../../components/Pagination";
 export default {
   name: "tags",
   data() {
     return {
       keyWord: "",
+      currentPage: 1,
+      pageSize: 5,
     };
   },
   components: {
     Arrow,
     RecentPost,
     CardTag,
+    Pagination,
   },
   methods: {
-    toNonAccentVietnamese: function (str) {
+    showDataPaginantion(currentPage) {
+      this.currentPage = currentPage;
+    },
+    toNonAccentVietnamese: function(str) {
       str = str.replace(/A|Á|À|Ã|Ạ|Â|Ấ|Ầ|Ẫ|Ậ|Ă|Ắ|Ằ|Ẵ|Ặ/g, "A");
       str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");
       str = str.replace(/E|É|È|Ẽ|Ẹ|Ê|Ế|Ề|Ễ|Ệ/, "E");
@@ -136,9 +149,19 @@ export default {
     },
   },
   computed: {
+    postIndexStart() {
+      return (this.currentPage - 1) * this.pageSize;
+    },
+    postIndexEnd() {
+      return this.postIndexStart + this.pageSize;
+    },
+
     blogPosts() {
       if (!this.keyWord) {
-        return this.$store.state.blogPosts;
+        return this.$store.state.blogPosts.slice(
+          this.postIndexStart,
+          this.postIndexEnd
+        );
       }
       return this.$store.state.blogPosts.filter((post) => {
         return this.toNonAccentVietnamese(

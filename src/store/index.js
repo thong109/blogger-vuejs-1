@@ -94,6 +94,7 @@ export default new Vuex.Store({
     changeUsername(state, payload) {
       state.profileUsername = payload;
     },
+  
   },
   actions: {
     async getCurrentUser({ commit }, user) {

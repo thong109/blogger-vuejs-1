@@ -1,5 +1,5 @@
 <template>
-  <div class="blog-card">
+  <div  class="blog-card">
     <div v-show="editPost" class="icons">
       <div @click="editBlog" class="icon">
         <Edit class="edit" />
@@ -9,7 +9,7 @@
       </div>
     </div>
     
-    <img :src="post.blogCoverPhoto" alt="" />
+    <img v-lazy="post.blogCoverPhoto" alt="" />
     <router-link class="link" :to="{ name: 'ViewBlog', params: { blogid: this.post.blogID } }">
     <div class="info">
       <h4>{{ post.blogTitle }}</h4>

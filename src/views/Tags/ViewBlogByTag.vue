@@ -1,6 +1,9 @@
 <template>
   <div class="blog-cards container">
-    <el-input placeholder="Enter để tìm bài viết..." v-model="keyWord"></el-input>
+    <el-input
+      placeholder="Enter để tìm bài viết..."
+      v-model="keyWord"
+    ></el-input>
 
     <div
       class="row2 tag-layout"
@@ -83,7 +86,6 @@
       </div>
       <div
         class="sidebar-column col-xl-3 col-lg-4 hidden-xs hidden-sm hidden-md"
-        s
       >
         <div class="theiaStickySidebar">
           <aside class="widget-area" style="height: auto !important">
@@ -93,6 +95,11 @@
         </div>
       </div>
     </div>
+    <Pagination
+      :page-size="this.pageSize"
+      :blogPosts="this.dataBlogPost.length"
+      @clicked-page-show-pagination="showDataPaginantion"
+    />
   </div>
 </template>
 
@@ -100,21 +107,29 @@
 import Arrow from "../../assets/Icons/arrow-right-light.svg";
 import RecentPost from "../RecentPost";
 import CardTag from "./cardTag.vue";
+import Pagination from "../../components/Pagination";
 
 export default {
   name: "tags",
   data() {
     return {
       keyWord: "",
+      currentPage: 1,
+      pageSize: 5,
+      totalPage: 1,
     };
   },
   components: {
     Arrow,
     RecentPost,
     CardTag,
+    Pagination,
   },
   methods: {
-    toNonAccentVietnamese: function (str) {
+    showDataPaginantion(currentPage) {
+      this.currentPage = currentPage;
+    },
+    toNonAccentVietnamese: function(str) {
       str = str.replace(/A|Á|À|Ã|Ạ|Â|Ấ|Ầ|Ẫ|Ậ|Ă|Ắ|Ằ|Ẵ|Ặ/g, "A");
       str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g, "a");
       str = str.replace(/E|É|È|Ẽ|Ẹ|Ê|Ế|Ề|Ễ|Ệ/, "E");
@@ -135,7 +150,14 @@ export default {
     },
   },
   computed: {
-    blogPosts() {
+    postIndexStart() {
+      return (this.currentPage - 1) * this.pageSize;
+    },
+    postIndexEnd() {
+      return this.postIndexStart + this.pageSize;
+    },
+
+    dataBlogPost() {
       const dataBlogByTag = [];
       const tagName = this.$route.params.tagName;
       this.$store.state.blogPosts.filter((post) => {
@@ -143,10 +165,14 @@ export default {
           dataBlogByTag.push(post);
         }
       });
+      return dataBlogByTag;
+    },
+
+    blogPosts() {
       if (!this.keyWord) {
-        return dataBlogByTag;
+        return this.dataBlogPost.slice(this.postIndexStart, this.postIndexEnd);
       }
-      return dataBlogByTag.filter((post) => {
+      return this.dataBlogPost.filter((post) => {
         return this.toNonAccentVietnamese(
           post.blogTitle.toLowerCase()
         ).includes(this.toNonAccentVietnamese(this.keyWord.toLowerCase()));
