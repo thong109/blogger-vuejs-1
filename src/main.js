@@ -6,7 +6,7 @@ import Vue2Editor from "vue2-editor";
 import firebase from "firebase/app";
 import Element from "element-ui";
 import VueLazyload from "vue-lazyload";
-const loadimage = require("./assets/loading.gif");
+const loadimage = require("./assets/loadingF3.gif");
 
 import "firebase/auth";
 import "element-ui/lib/theme-chalk/index.css";
