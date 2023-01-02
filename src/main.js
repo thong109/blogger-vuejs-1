@@ -14,10 +14,10 @@ import "element-ui/lib/theme-chalk/index.css";
 Vue.use(Vue2Editor);
 Vue.use(Element);
 Vue.use(VueLazyload, {
-  
   preLoad: 1.3,
   loading: loadimage,
-  attempt: 2,
+  attempt: 1,
+  listenEvents: ["scroll"],
 });
 
 Vue.config.productionTip = false;

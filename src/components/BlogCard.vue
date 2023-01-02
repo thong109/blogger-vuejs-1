@@ -1,5 +1,5 @@
 <template>
-  <div  class="blog-card">
+  <div class="blog-card">
     <div v-show="editPost" class="icons">
       <div @click="editBlog" class="icon">
         <Edit class="edit" />
@@ -8,17 +8,30 @@
         <Delete class="delete" />
       </div>
     </div>
-    
+
     <img v-lazy="post.blogCoverPhoto" alt="" />
-    <router-link class="link" :to="{ name: 'ViewBlog', params: { blogid: this.post.blogID } }">
-    <div class="info">
-      <h4>{{ post.blogTitle }}</h4>
-      <h6>Đăng Ngày: {{ new Date(post.blogDate).toLocaleString("en-us", { dateStyle: "long" }) }}</h6>
-      <router-link class="link" :to="{ name: 'ViewBlog', params: { blogid: this.post.blogID } }">
-       Xem Chi Tiết <Arrow class="arrow" />
-      </router-link>
-    </div>
-  </router-link>
+    <router-link
+      class="link"
+      :to="{ name: 'ViewBlog', params: { blogid: this.post.blogID } }"
+    >
+      <div class="info">
+        <h4>{{ post.blogTitle }}</h4>
+        <h6>
+          Đăng Ngày:
+          {{
+            new Date(post.blogDate).toLocaleString("en-us", {
+              dateStyle: "long",
+            })
+          }}
+        </h6>
+        <router-link
+          class="link"
+          :to="{ name: 'ViewBlog', params: { blogid: this.post.blogID } }"
+        >
+          Xem Chi Tiết <Arrow class="arrow" />
+        </router-link>
+      </div>
+    </router-link>
   </div>
 </template>
 
@@ -39,7 +52,10 @@ export default {
       this.$store.dispatch("deletePost", this.post.blogID);
     },
     editBlog() {
-      this.$router.push({ name: "EditBlog", params: { blogid: this.post.blogID } });
+      this.$router.push({
+        name: "EditBlog",
+        params: { blogid: this.post.blogID },
+      });
     },
   },
   computed: {
@@ -63,7 +79,8 @@ export default {
 
   &:hover {
     transform: rotateZ(-1deg) scale(1.01);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
   }
 
   .icons {
