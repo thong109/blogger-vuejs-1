@@ -105,7 +105,11 @@ export default {
     },
     fileChange() {
       this.file = this.$refs.blogPhoto.files[0];
-      const fileName = this.file.name;
+      const today = new Date();
+      const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+      const time = today.getHours() + "-" + today.getMinutes() + "-" + today.getSeconds();
+      const dateTime = date + '-' + time;
+      let fileName = Math.random() * 100 + dateTime + this.file.name;
       this.$store.commit("fileNameChange", fileName);
       this.$store.commit("createFileURL", URL.createObjectURL(this.file));
     },
