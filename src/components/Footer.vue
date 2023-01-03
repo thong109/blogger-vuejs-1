@@ -2,20 +2,22 @@
   <footer>
     <div class="container">
       <div class="left">
-        <div class="col-1">
-          <router-link class="header" :to="{ name: 'Home' }">Đổi Mới Dạy Học Bằng UDCNTT</router-link>
-          <ul>
-            <li>
-              <a href=" https://facebook.com/thangneymar44" target="_blank"><whatsapp class="svg-icon"/></a>
-            </li>
 
-          </ul>
-        </div>
         <div class="col-2">
           <ul>
-            <router-link class="link" :to="{ name: 'Home' }">Trang Chủ</router-link>
-            <router-link class="link" :to="{ name: 'Blogs' }">Bài Viết</router-link>
-            <router-link v-if="!user" class="link" :to="{ name: 'Login' }">Đăng Nhập</router-link>
+            <li>
+              <a href="https://www.facebook.com/groups/1011713702919105" target="_blank">👉Nhóm: Đổi mới dạy học bằng
+                UDCNTT</a>
+            </li>
+            <li>
+              <a href="https://facebook.com/thangneymar44" target="_blank">👉FB Ad:  Trần Hữu Thắng</a>
+            </li>
+            <li>
+              <a href="https://www.facebook.com/ungdungcnttvaodayhocvaquanly" target="_blank">👉FANPAGE: ỨNG DỤNG CNTT</a>
+            </li>
+            <li>
+              <a href="#" target="_blank">👉zalo ☎: 037 296 4842</a>
+            </li>
           </ul>
         </div>
       </div>
@@ -27,14 +29,10 @@
 </template>
 
 <script>
-// import youTube from "../assets/Icons/youtube-brands.svg";
-import whatsapp from "../assets/Icons/whatsapp-brands.svg";
 
 export default {
   name: "footer-vue",
   components: {
-    // youTube,
-    whatsapp,
 
   },
   computed: {
@@ -53,16 +51,23 @@ footer {
   margin-top: auto;
   padding: 100px 25px;
   background-color: #303030;
+
+  a {
+    color: white;
+    text-decoration: none;
+  }
+
   .container {
     display: flex;
     flex-direction: column;
     gap: 32px;
+
     @media (min-width: 800px) {
       flex-direction: row;
       gap: 0px;
     }
 
-    > div {
+    >div {
       display: flex;
       flex: 1;
     }
@@ -73,6 +78,7 @@ footer {
       display: flex;
       flex-direction: column;
       align-items: center;
+
       @media (min-width: 800px) {
         flex-direction: row;
         align-items: initial;
@@ -86,10 +92,12 @@ footer {
         margin-bottom: 16px;
         text-decoration: none;
         font-weight: 600;
+
         @media (min-width: 800px) {
           text-align: initial;
         }
       }
+
       ul {
         gap: 16px;
         list-style: none;
@@ -101,6 +109,7 @@ footer {
         gap: 32px;
         display: flex;
         flex: 1;
+
         @media (min-width: 800px) {
           gap: 0;
         }
@@ -111,16 +120,19 @@ footer {
 
         h2 {
           text-align: center;
+
           @media (min-width: 800px) {
             text-align: initial;
           }
         }
+
         ul {
           margin-top: auto;
 
           li {
             display: flex;
             align-items: center;
+
             .svg-icon {
               width: 24px;
               height: auto;
@@ -136,9 +148,11 @@ footer {
           justify-content: center;
           flex-direction: row;
           flex-wrap: wrap;
+
           @media (min-width: 800px) {
             flex-direction: column;
           }
+
           .link {
             font-size: 16px;
             font-weight: 500;
@@ -154,6 +168,7 @@ footer {
       color: #fff;
       align-items: center;
       flex-direction: column;
+
       @media (min-width: 800px) {
         align-items: flex-end;
         gap: 0;
