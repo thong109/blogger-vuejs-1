@@ -1,0 +1,66 @@
+[debug] [2023-01-03T15:10:51.733Z] ----------------------------------------------------------------------
+[debug] [2023-01-03T15:10:51.735Z] Command:       C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2023-01-03T15:10:51.735Z] CLI Version:   10.0.0
+[debug] [2023-01-03T15:10:51.735Z] Platform:      win32
+[debug] [2023-01-03T15:10:51.736Z] Node Version:  v16.15.1
+[debug] [2023-01-03T15:10:51.737Z] Time:          Tue Jan 03 2023 22:10:51 GMT+0700 (Indochina Time)
+[debug] [2023-01-03T15:10:51.737Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-01-03T15:10:51.787Z] Object ".emulators" in "firebase.json" has unknown property: {"additionalProperty":"singleProjectMode"}
+[debug] [2023-01-03T15:10:51.791Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-01-03T15:10:51.791Z] > authorizing via signed-in user (tranhuuthangcoi@gmail.com)
+[debug] [2023-01-03T15:10:51.791Z] [iam] checking project blogger-vuejs for permissions ["cloudconfig.configs.get","cloudconfig.configs.update","cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasedatabase.instances.update","firebasehosting.sites.update","firebaserules.releases.create","firebaserules.releases.update","firebaserules.rulesets.create"]
+[debug] [2023-01-03T15:10:51.793Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/blogger-vuejs:testIamPermissions  
+ {"permissions":["cloudconfig.configs.get","cloudconfig.configs.update","cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","datastore.indexes.create","datastore.indexes.delete","datastore.indexes.list","datastore.indexes.update","firebase.projects.get","firebasedatabase.instances.update","firebasehosting.sites.update","firebaserules.releases.create","firebaserules.releases.update","firebaserules.rulesets.create"]}
+[debug] [2023-01-03T15:10:53.184Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Tue, 03 Jan 2023 15:10:55 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=818","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2023-01-03T15:10:53.186Z] >>> HTTP REQUEST POST https://iam.googleapis.com/v1/projects/blogger-vuejs/serviceAccounts/blogger-vuejs@appspot.gserviceaccount.com:testIamPermissions  
+ {"permissions":["iam.serviceAccounts.actAs"]}
+[debug] [2023-01-03T15:10:54.182Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Tue, 03 Jan 2023 15:10:57 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2023-01-03T15:10:54.188Z] > refreshing access token with scopes: []
+[debug] [2023-01-03T15:10:54.189Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2023-01-03T15:10:54.732Z] <<< HTTP RESPONSE 200 {"expires":"Mon, 01 Jan 1990 00:00:00 GMT","pragma":"no-cache","date":"Tue, 03 Jan 2023 15:10:57 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2023-01-03T15:10:54.760Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/blogger-vuejs [none]
+[debug] [2023-01-03T15:10:56.518Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/blogger-vuejs 200
+[debug] [2023-01-03T15:10:56.519Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/blogger-vuejs {"projectId":"blogger-vuejs","projectNumber":"340865961091","displayName":"blogger-vuejs","name":"projects/blogger-vuejs","resources":{"hostingSite":"blogger-vuejs","realtimeDatabaseInstance":"blogger-vuejs-default-rtdb","storageBucket":"blogger-vuejs.appspot.com","locationId":"us-central"},"state":"ACTIVE","etag":"1_3c60ec2f-f16e-4d47-b05d-fc2a50bf734f"}
+[debug] [2023-01-03T15:10:56.521Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/blogger-vuejs [none]
+[debug] [2023-01-03T15:10:56.960Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/blogger-vuejs 200
+[debug] [2023-01-03T15:10:56.960Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/blogger-vuejs {"projectId":"blogger-vuejs","projectNumber":"340865961091","displayName":"blogger-vuejs","name":"projects/blogger-vuejs","resources":{"hostingSite":"blogger-vuejs","realtimeDatabaseInstance":"blogger-vuejs-default-rtdb","storageBucket":"blogger-vuejs.appspot.com","locationId":"us-central"},"state":"ACTIVE","etag":"1_3c60ec2f-f16e-4d47-b05d-fc2a50bf734f"}
+[info] 
+[info] === Deploying to 'blogger-vuejs'...
+[info] 
+[info] i  deploying database, storage, firestore, functions, hosting, remoteconfig 
+[info] +  functions: Finished running predeploy script. 
+[info] +  functions: Finished running predeploy script. 
+[info] i  database: checking rules syntax... 
+[debug] [2023-01-03T15:10:56.966Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2023-01-03T15:10:56.966Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2023-01-03T15:10:57.197Z] <<< HTTP RESPONSE 200 {"expires":"Mon, 01 Jan 1990 00:00:00 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","date":"Tue, 03 Jan 2023 15:11:00 GMT","pragma":"no-cache","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2023-01-03T15:10:57.235Z] >>> HTTP REQUEST GET https://firebasedatabase.googleapis.com/v1beta/projects/blogger-vuejs/locations/-/instances/blogger-vuejs-default-rtdb  
+ 
+[debug] [2023-01-03T15:10:58.064Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Tue, 03 Jan 2023 15:11:00 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2023-01-03T15:10:58.067Z] >>> HTTP REQUEST PUT https://blogger-vuejs-default-rtdb.firebaseio.com/.settings/rules.json?dryRun=true  
+ {
+  /* Visit https://firebase.google.com/docs/database/security to learn more about security rules. */
+  "rules": {
+    ".read": false,
+    ".write": false
+  }
+}
+[debug] [2023-01-03T15:10:58.977Z] <<< HTTP RESPONSE 200 {"server":"nginx","date":"Tue, 03 Jan 2023 15:11:01 GMT","content-type":"application/json; charset=utf-8","content-length":"15","connection":"keep-alive","access-control-allow-origin":"*","cache-control":"no-cache","strict-transport-security":"max-age=31556926; includeSubDomains; preload"}
+[info] +  database: rules syntax for database blogger-vuejs-default-rtdb is valid 
+[debug] [2023-01-03T15:10:58.983Z] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/blogger-vuejs  
+ 
+[debug] [2023-01-03T15:10:59.482Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Tue, 03 Jan 2023 15:11:02 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] i  firebase.storage: checking storage.rules for compilation errors... 
+[debug] [2023-01-03T15:10:59.488Z] >>> HTTP REQUEST POST https://firebaserules.googleapis.com/v1/projects/blogger-vuejs:test  
+ {"source":{"files":[{"name":"storage.rules","content":"rules_version = '2';\r\nservice firebase.storage {\r\n  match /b/{bucket}/o {\r\n    match /{allPaths=**} {\r\n      allow read, write: if request.auth!=null;\r\n    }\r\n  }\r\n}\r\n"}]}}
+[debug] [2023-01-03T15:10:59.901Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Tue, 03 Jan 2023 15:11:02 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] +  firebase.storage: rules file storage.rules compiled successfully 
+[info] i  firestore: reading indexes from firestore.indexes.json... 
+[info] i  cloud.firestore: checking firestore.rules for compilation errors... 
+[debug] [2023-01-03T15:10:59.906Z] >>> HTTP REQUEST POST https://firebaserules.googleapis.com/v1/projects/blogger-vuejs:test  
+ {"source":{"files":[{"name":"firestore.rules","content":"rules_version = '2';\nservice cloud.firestore {\n  match /databases/{database}/documents {\n    match /{document=**} {\n      allow read, write: if true;\n    }\n  }\n}"}]}}
+[debug] [2023-01-03T15:11:00.280Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Tue, 03 Jan 2023 15:11:03 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] +  cloud.firestore: rules file firestore.rules compiled successfully 

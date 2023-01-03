@@ -2,18 +2,47 @@
   <footer>
     <div class="container">
       <div class="left">
-
         <div class="col-2">
           <ul>
             <li>
-              <a href="https://www.facebook.com/groups/1011713702919105" target="_blank">👉Nhóm: Đổi mới dạy học bằng
-                UDCNTT</a>
+              <a
+                href="https://www.facebook.com/groups/1011713702919105"
+                target="_blank"
+                >👉Nhóm: Đổi mới dạy học bằng UDCNTT</a
+              >
             </li>
             <li>
-              <a href="https://facebook.com/thangneymar44" target="_blank">👉FB Ad:  Trần Hữu Thắng</a>
+              <a href="https://facebook.com/thangneymar44" target="_blank"
+                >👉FB Ad: Trần Hữu Thắng</a
+              >
             </li>
             <li>
-              <a href="https://www.facebook.com/ungdungcnttvaodayhocvaquanly" target="_blank">👉FANPAGE: ỨNG DỤNG CNTT</a>
+              <a
+                href="https://www.facebook.com/ungdungcnttvaodayhocvaquanly"
+                target="_blank"
+                >👉FANPAGE: ỨNG DỤNG CNTT</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.facebook.com/groups/1011713702919105/posts/1238889696868170"
+                target="_blank"
+                >👉KHÓA HỌC: SUPER PPT</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.facebook.com/groups/1011713702919105/posts/1228940237863116"
+                target="_blank"
+                >👉KHO GAMES: 200 GAMES</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.facebook.com/groups/1011713702919105/posts/1113674816056326"
+                target="_blank"
+                >👉KHO MẪU: 1000 MẪU</a
+              >
             </li>
             <li>
               <a href="#" target="_blank">👉zalo ☎: 037 296 4842</a>
@@ -21,20 +50,17 @@
           </ul>
         </div>
       </div>
-      <div class="right">
-        <p>Copyright 2022 | Trần Hữu Thắng </p>
-      </div>
+    </div>
+    <div class="right">
+      <p>Copyright 2022 | Trần Hữu Thắng</p>
     </div>
   </footer>
 </template>
 
 <script>
-
 export default {
   name: "footer-vue",
-  components: {
-
-  },
+  components: {},
   computed: {
     user() {
       return this.$store.state.user;
@@ -49,7 +75,7 @@ export default {
 <style lang="scss" scoped>
 footer {
   margin-top: auto;
-  padding: 100px 25px;
+  padding: 40px 25px;
   background-color: #303030;
 
   a {
@@ -60,14 +86,16 @@ footer {
   .container {
     display: flex;
     flex-direction: column;
+    flex-flow: column-reverse;
     gap: 32px;
 
     @media (min-width: 800px) {
       flex-direction: row;
       gap: 0px;
+      flex-flow: column-reverse;
     }
 
-    >div {
+    > div {
       display: flex;
       flex: 1;
     }
@@ -150,7 +178,6 @@ footer {
           flex-wrap: wrap;
 
           @media (min-width: 800px) {
-            flex-direction: column;
           }
 
           .link {
@@ -162,22 +189,21 @@ footer {
         }
       }
     }
-
-    .right {
-      gap: 32px;
-      color: #fff;
-      align-items: center;
-      flex-direction: column;
-
-      @media (min-width: 800px) {
-        align-items: flex-end;
-        gap: 0;
-      }
+  }
+  .right {
+    gap: 32px;
+    color: #fff;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    @media (min-width: 800px) {
+      align-items: flex-end;
+      gap: 0;
     }
+  }
 
-    p {
-      margin-top: auto;
-    }
+  p {
+    margin-top: 10px;
   }
 }
 </style>
