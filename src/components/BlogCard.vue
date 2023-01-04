@@ -9,7 +9,7 @@
       </div>
     </div>
 
-    <img v-lazy="post.blogCoverPhoto" alt="" />
+    <img :src="post.blogCoverPhoto" alt="" />
     <router-link
       class="link"
       :to="{ name: 'ViewBlog', params: { blogid: this.post.blogID } }"
@@ -74,7 +74,6 @@ export default {
   flex-direction: column;
   border-radius: 8px;
   background-color: #fff;
-  min-height: 420px;
   transition: 0.5s ease all;
 
   &:hover {
@@ -129,8 +128,8 @@ export default {
     border-radius: 8px 8px 0 0;
     z-index: 1;
     width: 100%;
-    min-height: 200px;
-    object-fit: cover;
+    min-height: 180px;
+    background-image: url("../assets/background-image-loading.gif");
   }
 
   .info {
