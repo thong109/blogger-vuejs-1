@@ -105,9 +105,9 @@
 
 <script>
 import Arrow from "../../assets/Icons/arrow-right-light.svg";
-import RecentPost from "../RecentPost";
+import RecentPost from "../RecentPost.vue";
 import CardTag from "./cardTag.vue";
-import Pagination from "../../components/Pagination";
+import Pagination from "../../components/Pagination.vue";
 
 export default {
   name: "tags",

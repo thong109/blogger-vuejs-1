@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <div class="home">
     <BlogPost v-if="!user" :post="welcomeScreen" />
@@ -28,11 +29,11 @@
 </template>
 
 <script>
-import BlogPost from "../components/BlogPost";
-import BlogCard from "../components/BlogCard";
+import BlogPost from "../components/BlogPost.vue";
+import BlogCard from "../components/BlogCard.vue";
 // import Arrow from "../assets/Icons/arrow-right-light.svg";
 export default {
-  name: "Home",
+  // name: "Home",
   components: { BlogPost, BlogCard },
   data() {
     return {

@@ -8,12 +8,11 @@
         <p class="content-preview" v-else v-html="post.blogHTML"></p>
         <router-link class="link link-light" v-if="post.welcomeScreen" :to="{ name: 'Blogs' }">
           Khám Phá
-          <Arrow class="arrow arrow-light" />
+          <svg aria-hidden="true" focusable="false" data-prefix="fal" data-icon="arrow-right" class="arrow arrow-light svg-inline--fa fa-arrow-right fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M216.464 36.465l-7.071 7.07c-4.686 4.686-4.686 12.284 0 16.971L387.887 239H12c-6.627 0-12 5.373-12 12v10c0 6.627 5.373 12 12 12h375.887L209.393 451.494c-4.686 4.686-4.686 12.284 0 16.971l7.071 7.07c4.686 4.686 12.284 4.686 16.97 0l211.051-211.05c4.686-4.686 4.686-12.284 0-16.971L233.434 36.465c-4.686-4.687-12.284-4.687-16.97 0z"></path></svg>
         </router-link>
         <router-link class="link" v-else :to="{ name: 'ViewBlog', params: { blogid: this.post.blogID } }">
           Xem Chi Tiết
-          <Arrow class="arrow" />
-        </router-link>
+          <svg aria-hidden="true" focusable="false" data-prefix="fal" data-icon="arrow-right" class="arrow svg-inline--fa fa-arrow-right fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M216.464 36.465l-7.071 7.07c-4.686 4.686-4.686 12.284 0 16.971L387.887 239H12c-6.627 0-12 5.373-12 12v10c0 6.627 5.373 12 12 12h375.887L209.393 451.494c-4.686 4.686-4.686 12.284 0 16.971l7.071 7.07c4.686 4.686 12.284 4.686 16.97 0l211.051-211.05c4.686-4.686 4.686-12.284 0-16.971L233.434 36.465c-4.686-4.687-12.284-4.687-16.97 0z"></path></svg>        </router-link>
       </div>
     </div>
     <div class="blog-photo" >
@@ -24,12 +23,10 @@
 </template>
 
 <script>
-import Arrow from "../assets/Icons/arrow-right-light.svg";
 export default {
   name: "blogPost",
   props: ["post"],
   components: {
-    Arrow,
   },
   computed: {
     user() {
@@ -139,7 +136,6 @@ export default {
     img {
       display: block;
       width: 100%;
-      height: 100%;
       object-fit: cover;
     }
   }
@@ -157,8 +153,7 @@ export default {
 
 .no-user:first-child {
   .blog-content {
-    background-color: #303030;
-    color: #fff;
+    color: inherit;
   }
 }
 </style>

@@ -4,37 +4,67 @@
     <Loading v-show="loading" />
     <div class="container">
       <div :class="{ invisible: !error }" class="err-message">
-        <p><span>Error:</span>{{ this.errorMsg }}</p>
+        <p><span>Lỗi:</span>{{ this.errorMsg }}</p>
       </div>
       <div class="blog-info">
         <input type="text" placeholder="Enter Blog Title" v-model="blogTitle" />
         <div class="upload-file">
-          <label for="blog-photo">Upload Cover Photo</label>
-          <input type="file" ref="blogPhoto" id="blog-photo" @change="fileChange" accept=".png, .jpg, ,jpeg" />
-          <button @click="openPreview" class="preview"
-            :class="{ 'button-inactive': !this.$store.state.blogPhotoFileURL }">
-            Preview Photo
+          <label for="blog-photo">Tải hình ảnh lên</label>
+          <input
+            type="file"
+            ref="blogPhoto"
+            id="blog-photo"
+            @change="fileChange"
+            accept=".png, .jpg, ,jpeg"
+          />
+          <button
+            @click="openPreview"
+            class="preview"
+            :class="{ 'button-inactive': !this.$store.state.blogPhotoFileURL }"
+          >
+            Xem ảnh tải lên
           </button>
-          <span>File Chosen: {{ this.$store.state.blogPhotoName }}</span>
+          <span>File tải lên: {{ this.$store.state.blogPhotoName }}</span>
         </div>
       </div>
       <div class="tag-input">
-        <el-tag :key="tag" v-for="tag in dynamicTags" closable :disable-transitions="false" @close="handleClose(tag)">
+        <el-tag
+          :key="tag"
+          v-for="tag in dynamicTags"
+          closable
+          :disable-transitions="false"
+          @close="handleClose(tag)"
+        >
           {{ tag }}
         </el-tag>
-        <el-input class="input-new-tag" v-if="inputVisible" v-model="inputValue" ref="saveTagInput" size="mini"
-          @keyup.enter.native="handleInputConfirm" @blur="handleInputConfirm">
+        <el-input
+          class="input-new-tag"
+          v-if="inputVisible"
+          v-model="inputValue"
+          ref="saveTagInput"
+          size="mini"
+          @keyup.enter.native="handleInputConfirm"
+          @blur="handleInputConfirm"
+        >
         </el-input>
-        <el-button v-else class="button-new-tag" size="small" @click="showInput">+ New Tag</el-button>
+        <el-button v-else class="button-new-tag" size="small" @click="showInput"
+          >+ Thêm Thẻ</el-button
+        >
       </div>
 
       <div class="editor">
-        <vue-editor :editorOptions="editorSettings" v-model="blogHTML" useCustomImageHandler
-          @image-added="imageHandler" />
+        <vue-editor
+          :editorOptions="editorSettings"
+          v-model="blogHTML"
+          useCustomImageHandler
+          @image-added="imageHandler"
+        />
       </div>
       <div class="blog-actions">
-        <button @click="uploadBlog">Publish Blog</button>
-        <router-link class="router-button" :to="{ name: 'BlogPreview' }">Post Preview</router-link>
+        <button @click="uploadBlog">Đăng bài</button>
+        <router-link class="router-button" :to="{ name: 'BlogPreview' }"
+          >Xem trước bài viết</router-link
+        >
       </div>
     </div>
   </div>
@@ -42,21 +72,21 @@
 
 <script>
 import BlogCoverPreview from "../components/BlogCoverPreview";
-import Loading from "../components/Loading";
+import Loading from "../components/Loading.vue";
 import firebase from "firebase/app";
 import "firebase/storage";
 import db from "../firebase/firebaseInit";
-import Quill from "quill";
-window.Quill = Quill;
-const ImageResize = require("quill-image-resize-module").default;
+import { VueEditor, Quill } from "vue2-editor";
+import ImageResize from "quill-image-resize-vue";
 Quill.register("modules/imageResize", ImageResize);
+
 export default {
   name: "CreatePost",
   data() {
     return {
-      dynamicTags: ['All'],
+      dynamicTags: ["All"],
       inputVisible: false,
-      inputValue: '',
+      inputValue: "",
       file: null,
       error: null,
       errorMsg: null,
@@ -71,6 +101,7 @@ export default {
   components: {
     BlogCoverPreview,
     Loading,
+    VueEditor,
   },
   methods: {
     handleClose(tag) {
@@ -85,19 +116,26 @@ export default {
     },
 
     handleInputConfirm() {
-      let inputValue = this.inputValue.charAt(0).toUpperCase() + this.inputValue.slice(1);
+      let inputValue =
+        this.inputValue.charAt(0).toUpperCase() + this.inputValue.slice(1);
       if (inputValue) {
         this.dynamicTags.push(inputValue);
       }
       this.inputVisible = false;
-      this.inputValue = '';
+      this.inputValue = "";
     },
     fileChange() {
       this.file = this.$refs.blogPhoto.files[0];
       const today = new Date();
-      const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-      const time = today.getHours() + "-" + today.getMinutes() + "-" + today.getSeconds();
-      const dateTime = date + '-' + time;
+      const date =
+        today.getFullYear() +
+        "-" +
+        (today.getMonth() + 1) +
+        "-" +
+        today.getDate();
+      const time =
+        today.getHours() + "-" + today.getMinutes() + "-" + today.getSeconds();
+      const dateTime = date + "-" + time;
 
       let fileName = Math.random() * 100 + dateTime + this.file.name;
       this.$store.commit("fileNameChange", fileName);
@@ -111,12 +149,20 @@ export default {
     imageHandler(file, Editor, cursorLocation, resetUploader) {
       const storageRef = firebase.storage().ref();
       const today = new Date();
-      const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-      const time = today.getHours() + "-" + today.getMinutes() + "-" + today.getSeconds();
-      const dateTime = date + '-' + time;
+      const date =
+        today.getFullYear() +
+        "-" +
+        (today.getMonth() + 1) +
+        "-" +
+        today.getDate();
+      const time =
+        today.getHours() + "-" + today.getMinutes() + "-" + today.getSeconds();
+      const dateTime = date + "-" + time;
       let fileNameBodyContent = Math.random() * 100 + dateTime + file.name;
 
-      const docRef = storageRef.child(`documents/blogPostPhotos/${fileNameBodyContent}`);
+      const docRef = storageRef.child(
+        `documents/blogPostPhotos/${fileNameBodyContent}`
+      );
       docRef.put(file).on(
         "state_changed",
         (snapshot) => {
@@ -135,10 +181,12 @@ export default {
 
     uploadBlog() {
       if (this.blogTitle.length !== 0 && this.blogHTML.length !== 0) {
-        if (this.file) {
+        if (this.file || this.$store.state.blogPhotoFileURL !== null) {
           this.loading = true;
           const storageRef = firebase.storage().ref();
-          const docRef = storageRef.child(`documents/BlogCoverPhotos/${this.$store.state.blogPhotoName}`);
+          const docRef = storageRef.child(
+            `documents/BlogCoverPhotos/${this.$store.state.blogPhotoName}`
+          );
           docRef.put(this.file).on(
             "state_changed",
             (snapshot) => {
@@ -166,20 +214,23 @@ export default {
               });
               await this.$store.dispatch("getPost");
               this.loading = false;
-              this.$router.push({ name: "ViewBlog", params: { blogid: dataBase.id } });
+              this.$router.push({
+                name: "ViewBlog",
+                params: { blogid: dataBase.id },
+              });
             }
           );
           return;
         }
         this.error = true;
-        this.errorMsg = "Please ensure you uploaded a cover photo!";
+        this.errorMsg = "Vui lòng đảm bảo bạn đã tải lên ảnh bìa !";
         setTimeout(() => {
           this.error = false;
         }, 5000);
         return;
       }
       this.error = true;
-      this.errorMsg = "Please ensure Blog Title & Blog Post has been filled!";
+      this.errorMsg = "Vui lòng đảm bảo Tiêu đề Blog & Bài đăng trên Blog đã đầy đủ !";
       setTimeout(() => {
         this.error = false;
       }, 5000);
@@ -218,7 +269,7 @@ export default {
   margin-top: 10px;
   margin-bottom: 10px;
 }
-.el-tag{
+.el-tag {
   margin-left: 5px;
 }
 

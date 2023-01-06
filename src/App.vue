@@ -12,9 +12,9 @@
   </div>
 </template>
 
-<script>
-import Navigation from "./components/Navigation";
-import Footer from "./components/Footer";
+<script >
+import Navigation from "./components/Navigation.vue";
+import Footer from "./components/Footer.vue";
 import firebase from "firebase/app";
 import "firebase/auth";
 export default {

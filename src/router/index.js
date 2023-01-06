@@ -79,7 +79,7 @@ const routes = [
     name: "ForgotPassword",
     component: ForgotPassword,
     meta: {
-      title: "Forgot Password",
+      title: "Quên mật khẩu",
       requiresAuth: false,
     },
   },
@@ -107,7 +107,7 @@ const routes = [
     name: "CreatePost",
     component: CreatePost,
     meta: {
-      title: "Create Post",
+      title: "Tạo bài viết",
       requiresAuth: true,
       requiresAdmin: true,
     },
@@ -117,7 +117,7 @@ const routes = [
     name: "BlogPreview",
     component: BlogPreview,
     meta: {
-      title: "Preview Blog Post",
+      title: "Xem trước bài viết",
       // requiresAuth: true,
       // requiresAdmin: true,
     },
@@ -127,7 +127,7 @@ const routes = [
     name: "ViewBlog",
     component: ViewBlog,
     meta: {
-      title: "View Blog Post",
+      title: "Chi tiết bài viết",
       requiresAuth: false,
     },
   },
@@ -136,7 +136,7 @@ const routes = [
     name: "EditBlog",
     component: EditBlog,
     meta: {
-      title: "Edit Blog Post",
+      title: "Sửa bài viết",
       // requiresAuth: true,
       // requiresAdmin: true,
     },
@@ -145,7 +145,7 @@ const routes = [
 
 const router = new VueRouter({
   mode: "history",
-  base: process.env.BASE_URL,
+  base: import.meta.env.BASE_URL,
   routes,
   scrollBehavior() {
     return { x: 0, y: 0 };

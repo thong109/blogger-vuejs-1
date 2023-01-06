@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import BlogCard from "../components/BlogCard";
+import BlogCard from "../components/BlogCard.vue";
 export default {
   name: "blogs",
   components: { BlogCard },
