@@ -48,5 +48,8 @@ export default {
     width: 100%;
     margin-bottom: 32px;
   }
+  .post-content{
+    word-break: break-all;
+  }
 }
 </style>
