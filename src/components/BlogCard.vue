@@ -21,7 +21,7 @@
       </div>
     </div>
 
-    <img v-lazy="post.blogCoverPhoto" :key="post.blogCoverPhoto.src" alt="" />
+    <img :src="post.blogCoverPhoto" :key="post.blogCoverPhoto.src" alt="" />
 
     <router-link class="link" :to="{ name: 'ViewBlog', params: { blogid: this.post.blogID } }">
       <div class="info">
