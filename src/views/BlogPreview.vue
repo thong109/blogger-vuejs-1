@@ -91,5 +91,9 @@ li {
   .tags-post {
     margin: 15px 0;
   }
+
+  .post-content{
+    word-break: break-all;
+  }
 }
 </style>
