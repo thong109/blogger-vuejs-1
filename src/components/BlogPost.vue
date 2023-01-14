@@ -54,7 +54,14 @@ export default {
   flex-direction: column;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 
+  @media (min-width: 800px) {
+    max-height: 600px;
+    min-height: 600px;
+  }
+
   @media (min-width: 320px) and (max-width: 575.98px) {
+    max-height: auto;
+    min-height: auto;
     padding: 0 15px;
   }
 
@@ -83,6 +90,10 @@ export default {
       max-width: 375px;
       padding: 72px 24px;
 
+      @media (min-width: 320px) and (max-width: 575.98px) {
+        padding: 25px 40px;
+      }
+
       @media (min-width: 700px) {
         padding: 0 24px;
       }
@@ -94,7 +105,11 @@ export default {
         margin-bottom: 24px;
 
         @media (min-width: 700px) {
-          font-size: 40px;
+          font-size: 36px;
+        }
+
+        @media (min-width: 320px) and (max-width: 575.98px) {
+          font-size: 30px;
         }
       }
 
@@ -137,7 +152,10 @@ export default {
   .blog-photo {
     order: 1;
     flex: 3;
+    padding: 0 !important;
+    height: auto;
     margin-top: 10px;
+    position: relative;
 
     @media (min-width: 700px) {
       order: 2;
@@ -150,8 +168,19 @@ export default {
     img {
       display: block;
       width: 100%;
-      object-fit: cover;
       height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      @media (min-width: 320px) and (max-width: 575.98px) {
+        height: auto;
+        position: relative;
+      }
+
+      @media (min-width: 700px) {
+        height: 100%;
+      }
     }
   }
 
