@@ -134,7 +134,7 @@ a {
 
 @media (min-width: 320px) and (max-width: 575.98px) {
   .tag-layout{
-    flex-direction: column-reverse;
+    flex-direction: column;
     padding: 10px;
   }
   .post-header{

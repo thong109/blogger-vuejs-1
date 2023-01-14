@@ -4,6 +4,18 @@
       <h2>{{ this.blogTitle }}</h2>
       <img :src="blogCoverPhoto" alt="" />
       <div class="post-content ql-editor" v-html="blogHTML"></div>
+
+      <router-link class="router-link" :to="{ name: 'CreatePost' }">
+        <el-button type="info" class="prefix-post">
+          <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" class="icon" data-v-029747aa="">
+            <path fill="currentColor" d="M224 480h640a32 32 0 1 1 0 64H224a32 32 0 0 1 0-64z"></path>
+            <path fill="currentColor"
+              d="m237.248 512 265.408 265.344a32 32 0 0 1-45.312 45.312l-288-288a32 32 0 0 1 0-45.312l288-288a32 32 0 1 1 45.312 45.312L237.248 512z">
+            </path>
+          </svg>
+          Trở lại
+        </el-button>
+      </router-link>
     </div>
   </div>
 </template>
@@ -26,12 +38,23 @@ export default {
 </script>
 
 <style lang="scss">
+li {
+  list-style: none;
+}
+
 .post-view {
   min-height: 100%;
+  padding: 0 15px;
+
+  .icon {
+    width: 16px;
+    height: auto;
+    cursor: pointer;
+    font-size: 24px;
+  }
 
   .container {
     max-width: 1000px;
-    padding: 60px 25px;
   }
 
   .ql-editor {
@@ -39,8 +62,9 @@ export default {
   }
 
   h2 {
-    margin-bottom: 16px;
-    font-weight: 300;
+    margin: 16px 0;
+    text-align: center;
+    font-weight: 400;
     font-size: 32px;
   }
 
@@ -48,6 +72,26 @@ export default {
     width: 100%;
     margin-bottom: 32px;
   }
+
+  .prefix-post {
+    background-color: #303030;
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+    span {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .post-content {
+    word-break: break-all;
+  }
+
+  .tags-post {
+    margin: 15px 0;
+  }
+
   .post-content{
     word-break: break-all;
   }

@@ -106,9 +106,9 @@
 
 <script>
 import Arrow from "../../assets/Icons/arrow-right-light.svg";
-import RecentPost from "../RecentPost";
-import CardTag from "./cardTag";
-import Pagination from "../../components/Pagination";
+import RecentPost from "../RecentPost.vue";
+import CardTag from "./cardTag.vue";
+import Pagination from "../../components/Pagination.vue";
 export default {
   name: "tags",
   data() {
@@ -352,6 +352,7 @@ h6 {
   justify-content: space-between;
   align-items: center;
   margin-top: 10px;
+  scroll-behavior: smooth;
 }
 
 a {
@@ -448,7 +449,7 @@ header .mobile-nav {
 
 @media (min-width: 320px) and (max-width: 575.98px) {
   .tag-layout {
-    flex-direction: column-reverse;
+    flex-direction: column;
     padding: 10px;
   }
 

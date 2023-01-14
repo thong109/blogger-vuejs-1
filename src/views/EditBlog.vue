@@ -41,14 +41,13 @@
 </template>
 
 <script>
-import BlogCoverPreview from "../components/BlogCoverPreview";
-import Loading from "../components/Loading";
+import BlogCoverPreview from "../components/BlogCoverPreview.vue";
+import Loading from "../components/Loading.vue";
 import firebase from "firebase/app";
 import "firebase/storage";
 import db from "../firebase/firebaseInit";
-import Quill from "quill";
-window.Quill = Quill;
-const ImageResize = require("quill-image-resize-module").default;
+import { VueEditor, Quill } from "vue2-editor";
+import ImageResize from 'quill-image-resize-vue'
 Quill.register("modules/imageResize", ImageResize);
 export default {
   name: "CreatePost",
@@ -73,6 +72,7 @@ export default {
   components: {
     BlogCoverPreview,
     Loading,
+    VueEditor,
   },
   async mounted() {
     this.routeID = this.$route.params.blogid;
@@ -80,7 +80,7 @@ export default {
       return post.blogID === this.routeID;
     });
     this.$store.commit("setBlogState", this.currentBlog[0]);
-    this.dynamicTags= this.$store.state.blogTags ? this.$store.state.blogTags : [];
+    this.dynamicTags = this.$store.state.blogTags ? this.$store.state.blogTags : [];
 
   },
   methods: {
@@ -167,7 +167,7 @@ export default {
                 blogCoverPhoto: downloadURL,
                 blogCoverPhotoName: this.blogCoverPhotoName,
                 blogTitle: this.blogTitle,
-                tags:  this.dynamicTags,
+                tags: this.dynamicTags,
               });
               await this.$store.dispatch("updatePost", this.routeID);
               this.loading = false;
@@ -180,7 +180,7 @@ export default {
         await dataBase.update({
           blogHTML: this.blogHTML,
           blogTitle: this.blogTitle,
-          tags:  this.dynamicTags,
+          tags: this.dynamicTags,
         });
         await this.$store.dispatch("updatePost", this.routeID);
         this.loading = false;

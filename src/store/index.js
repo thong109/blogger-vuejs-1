@@ -94,7 +94,6 @@ export default new Vuex.Store({
     changeUsername(state, payload) {
       state.profileUsername = payload;
     },
-  
   },
   actions: {
     async getCurrentUser({ commit }, user) {
@@ -113,8 +112,9 @@ export default new Vuex.Store({
       const dataBase = await db.collection("blogPosts").orderBy("date", "desc");
       const dbResults = await dataBase.get();
       this.state.loading = true;
+      const blogPosts = state.blogPosts;
       dbResults.forEach((doc) => {
-        if (!state.blogPosts.some((post) => post.blogID === doc.id)) {
+        if (!blogPosts.some((post) => post.blogID === doc.id)) {
           const data = {
             blogID: doc.data().blogID,
             blogHTML: doc.data().blogHTML,
@@ -126,13 +126,15 @@ export default new Vuex.Store({
             blogViews: doc.data().blogViews,
           };
 
-          state.blogPosts.push(data);
+          blogPosts.push(data);
         }
       });
-      let blogTags = state.blogPosts.map(({ blogTags }) => blogTags);
+
+      let blogTags = blogPosts.map(({ blogTags }) => blogTags);
+
       const tagList = blogTags.flat();
       this.state.tags = tagList;
-      var tagCountResult = tagList.reduce(function(obj, b) {
+      var tagCountResult = tagList.reduce(function (obj, b) {
         obj[b] = ++obj[b] || 1;
         return obj;
       }, {});

@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <div class="form-wrap">
     <form class="register">
@@ -44,7 +45,7 @@ import firebase from "firebase/app";
 import "firebase/auth";
 import db from "../firebase/firebaseInit";
 export default {
-  name: "Register",
+  // name: "Register",
   components: {
     email,
     password,
