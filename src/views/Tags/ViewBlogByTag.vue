@@ -148,6 +148,7 @@ export default {
       str = str.replace(/\u02C6|\u0306|\u031B/g, "");
       return str;
     },
+
   },
   computed: {
     postIndexStart() {
@@ -371,6 +372,7 @@ h6 {
   justify-content: space-between;
   align-items: center;
   margin-top: 10px;
+  scroll-behavior: smooth;
 }
 
 a {
@@ -458,7 +460,7 @@ a {
 
 @media (min-width: 320px) and (max-width: 575.98px) {
   .tag-layout {
-    flex-direction: column-reverse;
+    flex-direction: column;
     padding: 10px;
   }
 
